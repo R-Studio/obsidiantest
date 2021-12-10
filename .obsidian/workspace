@@ -4,25 +4,12 @@
     "type": "split",
     "children": [
       {
-        "id": "00392a83385078b0",
+        "id": "49a56ed929396a63",
         "type": "leaf",
-        "dimension": 53.72727272727273,
         "state": {
           "type": "markdown",
           "state": {
-            "file": "README.md",
-            "mode": "source"
-          }
-        }
-      },
-      {
-        "id": "6073c8948606dcf7",
-        "type": "leaf",
-        "dimension": 46.27272727272727,
-        "state": {
-          "type": "markdown",
-          "state": {
-            "file": "README.md",
+            "file": "Folder1/TestFile in Folder1.md",
             "mode": "preview"
           }
         }
@@ -81,7 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "README.md",
+                "file": "Folder1/TestFile in Folder1.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -99,10 +86,11 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "00392a83385078b0",
+  "active": "49a56ed929396a63",
   "lastOpenFiles": [
+    "Folder1/TestFile in Folder1.md",
+    "Folder1/Another file that wil be merged.md",
     "README.md",
-    "TestFile.md",
-    "Folder1/TestFile in Folder1.md"
+    "TestFile.md"
   ]
 }

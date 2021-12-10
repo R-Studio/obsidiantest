@@ -197,3 +197,11 @@ MIT
    [PlMe]: <https://github.com/joemccann/dillinger/tree/master/plugins/medium/README.md>
    [PlGa]: <https://github.com/RahulHP/dillinger/blob/master/plugins/googleanalytics/README.md>
 
+
+
+
+
+# Merged Title
+Some Text
+
+![](02-influxdb_csv-gui.png)
