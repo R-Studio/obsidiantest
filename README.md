@@ -40,3 +40,7 @@ afadad
 #test
 
 
+# test
+![](02-influxdb_csv-gui.png)
+
+
