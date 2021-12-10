@@ -11,7 +11,7 @@ Get-Item -Path "<TestPath>" | Remove-Item
 
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 
-![Test Picture](01-dynamic-threshold.png "This is my fancy site")(https://wiki.webperfect.ch)
+![Test Picture](01-dynamic-threshold.png "This is my fancy site")
 
 Dillinger is a cloud-enabled, mobile-ready, offline-storage compatible,
 AngularJS-powered HTML5 Markdown editor.
