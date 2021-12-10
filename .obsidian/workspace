@@ -9,8 +9,8 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Folder1/TestFile in Folder1.md",
-            "mode": "preview"
+            "file": "TestFile.md",
+            "mode": "source"
           }
         }
       }
@@ -68,7 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Folder1/TestFile in Folder1.md",
+                "file": "TestFile.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -88,9 +88,11 @@
   },
   "active": "49a56ed929396a63",
   "lastOpenFiles": [
+    "TestFile.md",
     "Folder1/TestFile in Folder1.md",
+    "01-dynamic-threshold.png",
+    "02-influxdb_csv-gui.png",
     "Folder1/Another file that wil be merged.md",
-    "README.md",
-    "TestFile.md"
+    "README.md"
   ]
 }
