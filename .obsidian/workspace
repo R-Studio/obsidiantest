@@ -52,7 +52,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "tag:#test2",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
