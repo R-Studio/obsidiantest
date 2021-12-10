@@ -1,6 +1,8 @@
 # obsidiantest
 This is a repostitory to test the **Obsidian** Markdown editor and also the **GitHub Community Plugin** to automatically commit & push changes to the GitHub repo.
 
+More information's about the GitHub sync visit: https://desktopofsamuel.com/how-to-sync-obsidian-vault-for-free-using-git/
+
 ```powershell
 $MyMood = Get-MyCurrentMood -Path "brain" -Option "truth" | Select-Object -WithoutFilters
 
