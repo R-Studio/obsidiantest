@@ -6,11 +6,24 @@
       {
         "id": "00392a83385078b0",
         "type": "leaf",
+        "dimension": 53.72727272727273,
         "state": {
           "type": "markdown",
           "state": {
-            "file": "TestFile.md",
+            "file": "README.md",
             "mode": "source"
+          }
+        }
+      },
+      {
+        "id": "6073c8948606dcf7",
+        "type": "leaf",
+        "dimension": 46.27272727272727,
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "README.md",
+            "mode": "preview"
           }
         }
       }
@@ -68,7 +81,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "TestFile.md",
+                "file": "README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -88,6 +101,7 @@
   },
   "active": "00392a83385078b0",
   "lastOpenFiles": [
+    "README.md",
     "TestFile.md",
     "Folder1/TestFile in Folder1.md"
   ]
