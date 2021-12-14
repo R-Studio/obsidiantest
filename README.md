@@ -44,5 +44,5 @@ afadad
 ![](02-influxdb_csv-gui.png)
 
 
-(C) Robin Hermann
+(C) Robin Hermann 2021
 
