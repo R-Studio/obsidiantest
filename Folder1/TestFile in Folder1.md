@@ -9,9 +9,13 @@ Get-Item -Path "<TestPath>" | Remove-Item
 
 [-![N|Solid](https://cldup.com/dTxpPi9lDf.thumb.png)](https://nodesource.com/products/nsolid)
 
+sdsdsd
+
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 
--![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)
+sfsf
+
+--![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)
 
 Dillinger is a cloud-enabled, mobile-ready, offline-storage compatible,
 AngularJS-powered HTML5 Markdown editor.
