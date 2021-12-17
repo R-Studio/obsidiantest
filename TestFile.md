@@ -164,13 +164,13 @@ docker run -d -p 8000:8080 --restart=always --cap-add=SYS_ADMIN --name=dillinger
 > Note: `--capt-add=SYS-ADMIN` is required for PDF rendering.
 
 Verify the deployment by navigating to your server address in
-your preferred browser.
+your preferred browser. 
 
 ```sh
 127.0.0.1:8000
 ```
 
-
+![Alt Text](01-testimage_paste-image.png)
 
 ## License
 
