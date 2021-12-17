@@ -2,7 +2,7 @@ input: .
 output: .retype
 url: https://r-studio.github.io/obsidiantest/
 branding:
-  title: Project Name
+  title: Project GitHub X
   label: Docs
 links:
   - text: Getting Started
