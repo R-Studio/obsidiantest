@@ -25,12 +25,12 @@
     
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("/obsidiantest/doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="/obsidiantest/resources/css/retype.css?v=1.11.1.693058744881" rel="stylesheet" data-turbo-track="reload" />
+    <link href="/obsidiantest/resources/css/retype.css?v=1.11.1.693329212129" rel="stylesheet" data-turbo-track="reload" />
 
-    <script type="text/javascript" src="/obsidiantest/resources/js/config.js?v=1.11.1.693058744881" defer data-turbo-track="reload"></script>
+    <script type="text/javascript" src="/obsidiantest/resources/js/config.js?v=1.11.1.693329212129" defer data-turbo-track="reload"></script>
     <script type="text/javascript" src="/obsidiantest/resources/js/retype.js?v=1.11.1" defer data-turbo-track="reload"></script>
-    <script id="lunr-js" type="text/javascript" src="/obsidiantest/resources/js/lunr.js?v=1.11.1.693058744881" defer></script>
-    <script id="prism-js" type="text/javascript" src="/obsidiantest/resources/js/prism.js?v=1.11.1.693058744881" defer></script>
+    <script id="lunr-js" type="text/javascript" src="/obsidiantest/resources/js/lunr.js?v=1.11.1.693329212129" defer></script>
+    <script id="prism-js" type="text/javascript" src="/obsidiantest/resources/js/prism.js?v=1.11.1.693329212129" defer></script>
 </head>
     <body>
         <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -236,6 +236,7 @@ Another paragraph with **bold**, _italic_, ~~strikethrough~~, and `code` samples
 - First item
 - Second item
 - Third item
+- xxx item
 
 1. First item
 2. Second item
@@ -301,6 +302,9 @@ Need to draw attention to something? Use an alert.
     <span><span class="docs-emoji">&#x1F48E;</span> flair <span class="docs-emoji">&#x1F48E;</span></span>
 </span> to your document.</p>
 <p>The most commonly used Retype components include <a href="../components/alert.md">Alert</a> and <a href="../components/tab.md">Tab</a>:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-powershell"><code v-pre class="language-powershell">Get-Item -Switch -Name &quot;TestName&quot; -Fancy @Params</code></pre>
+</doc-codeblock></div>
 <doc-anchor-target id="alert">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#alert">#</doc-anchor-trigger>
