@@ -46,6 +46,7 @@ Another paragraph with **bold**, _italic_, ~~strikethrough~~, and `code` samples
 - First item
 - Second item
 - Third item
+- xxx item
 
 1. First item
 2. Second item
@@ -94,6 +95,10 @@ If your home page is empty or blank, double check that you have a default page i
 In addition to the standard Markdown options, Retype includes many custom [components](../components/readme.md) so you can easily add extra [!badge :gem: flair :gem:] to your document.
 
 The most commonly used Retype components include [Alert](../components/alert.md) and [Tab](../components/tab.md):
+
+```powershell
+Get-Item -Switch -Name "TestName" -Fancy @Params
+```
 
 ### Alert
 
