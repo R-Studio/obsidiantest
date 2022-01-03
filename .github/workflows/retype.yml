@@ -13,12 +13,11 @@ jobs:
       - uses: actions/checkout@v2
 
       - uses: retypeapp/action-build@v1
+      - uses: jacobtomlinson/gha-find-replace@v2
+        with:
+          find: ";max-width:1400px"
+          replace: ";max-width:2000px"      
           
       - uses: retypeapp/action-github-pages@v1
         with:
           update-branch: true
-
-      - uses: jacobtomlinson/gha-find-replace@v2
-        with:
-          find: "\;max\-width\:1400px"
-          replace: "\;max\-width\:2000px"
