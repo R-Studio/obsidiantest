@@ -18,8 +18,8 @@ jobs:
         with:
           find: ";max-width:1400px"
           replace: ";max-width:2000px"
-          regex: false
-          include: "resources/css/retype.css"
+          regex: true
+          include: "resources/css/**.css"
           
       - uses: retypeapp/action-github-pages@v1
         with:
