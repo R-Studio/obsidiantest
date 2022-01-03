@@ -8,14 +8,19 @@ on:
 jobs:
   publish:
     name: Publish to retype branch
-
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v2
 
       - uses: retypeapp/action-build@v1
-
+      - name: Find and Replace
+        uses: jacobtomlinson/gha-find-replace@v2
+        with:
+          find: ";max-width:1400px"
+          replace: ";max-width:2000px"
+          regex: false
+          include: "**/*.css"
+          
       - uses: retypeapp/action-github-pages@v1
         with:
           update-branch: true
