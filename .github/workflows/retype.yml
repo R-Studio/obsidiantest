@@ -11,15 +11,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-
-      - uses: retypeapp/action-build@v1
-      - name: Find and Replace
-        uses: jacobtomlinson/gha-find-replace@v2
+      - uses: jacobtomlinson/gha-find-replace@v2
         with:
           find: ";max-width:1400px"
           replace: ";max-width:2000px"
           include: "**retype.css"
-          
+
+      - uses: retypeapp/action-build@v1
+        
       - uses: retypeapp/action-github-pages@v1
         with:
           update-branch: true
