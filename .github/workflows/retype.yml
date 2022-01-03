@@ -21,7 +21,6 @@ jobs:
 
 name: Replace CSS Property
 on:
-  workflow_dispatch:
   push:
     branches:
       - retype
