@@ -11,10 +11,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: jacobtomlinson/gha-find-replace@v2
-        with:
-          find: ";max-width:1400px"
-          replace: ";max-width:2000px"      
 
       - uses: retypeapp/action-build@v1
           
