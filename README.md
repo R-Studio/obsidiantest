@@ -13,7 +13,7 @@ If ($MyMood -gt 4) {
 	Write-Output "My mood is very sad!"
 	Get-Package "Obsidian" | Uninstall-Package -Force -ForEver
 	break
-} Stop-Damian -Force -AndMartin
+} Stop-Damian -Force -AndMartin -AndThomas
 ```
 ---
  
