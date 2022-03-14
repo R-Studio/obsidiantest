@@ -1,4 +1,4 @@
-# obsidiantest
+# [obsidiantest](https://github.com/R-Studio/obsidiantest)
 This is a repostitory to test the **Obsidian** Markdown editor and also the **GitHub Community Plugin** to automatically commit & push changes to the GitHub repo.
 
 More information's about the GitHub sync visit: https://desktopofsamuel.com/how-to-sync-obsidian-vault-for-free-using-git/
