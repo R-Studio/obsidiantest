@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="turbo-root" content="/obsidiantest">
+    <meta name="turbo-cache-control" content="no-cache">
+
+    <!-- See retype.com -->
+    <meta name="generator" content="Retype 2.0">
+
+    <!-- Primary Meta Tags -->
+    <title>Kubernetes</title>
+    <meta name="title" content="Kubernetes">
+    <meta name="description" content="Rancher Kubernetes is using Docker as container runtime/engine." />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://r-studio.github.io/obsidiantest/folder1/k8s/">
+    <meta property="og:title" content="Kubernetes">
+    <meta property="og:description" content="Rancher Kubernetes is using Docker as container runtime/engine.">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://r-studio.github.io/obsidiantest/folder1/k8s/">
+    <meta property="twitter:title" content="Kubernetes">
+    <meta property="twitter:description" content="Rancher Kubernetes is using Docker as container runtime/engine.">
+
+    <script>(function () { var el = document.documentElement, m = localStorage.getItem("/obsidiantest/doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
+
+    <link href="/obsidiantest/resources/css/retype.css?v=2.0.701181005999" rel="stylesheet" data-turbo-track="reload" />
+
+    <script type="text/javascript" src="/obsidiantest/resources/js/config.js?v=2.0.701181005999" defer data-turbo-track="reload"></script>
+    <script type="text/javascript" src="/obsidiantest/resources/js/retype.js?v=2.0" defer data-turbo-track="reload"></script>
+    <script id="lunr-js" type="text/javascript" src="/obsidiantest/resources/js/lunr.js?v=2.0.701181005999" defer></script>
+    <script id="prism-js" type="text/javascript" src="/obsidiantest/resources/js/prism.js?v=2.0.701181005999" defer></script>
+
+    <style>
+        .container {
+            max-width: 2000px;
+        }
+    </style>
+
+</head>
+<body>
+    <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
+        <div class="absolute bottom-0 left-0 bg-gray-100 dark:bg-dark-800" style="top: 5rem; right: 50%"></div>
+    
+        <header id="docs-site-header" class="sticky top-0 z-30 flex w-full h-16 bg-white border-b border-gray-200 md:h-20 dark:bg-dark-850 dark:border-dark-650">
+            <div class="container relative flex items-center justify-between grow pr-6 md:justify-start">
+                <!-- Mobile menu button skeleton -->
+                <button v-cloak class="skeleton docs-mobile-menu-button flex items-center justify-center shrink-0 overflow-hidden dark:text-white focus:outline-none rounded-full w-10 h-10 ml-3.5 md:hidden"><svg xmlns="http://www.w3.org/2000/svg" class="mb-px shrink-0" width="24" height="24" viewBox="0 0 24 24" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor"><path d="M2 4h20v2H2zM2 11h20v2H2zM2 18h20v2H2z"></path></g></svg></button>
+                <div v-cloak id="docs-sidebar-toggle"></div>
+        
+                <!-- Logo -->
+                <div class="flex items-center justify-between h-full py-2 md:w-75">
+                    <div class="flex items-center px-2 md:px-6">
+                        <a id="docs-site-logo" href="/obsidiantest/" class="flex items-center leading-snug text-xl">
+                            <span class="dark:text-white font-semibold line-clamp-1 md:line-clamp-2">Project GitHub X</span>
+                        </a><span class="hidden px-2 py-1 ml-4 text-sm font-semibold leading-none text-root-logo-label-text bg-root-logo-label-bg rounded-sm md:inline-block">Docs</span>
+                    </div>
+        
+                    <span class="hidden h-8 border-r md:inline-block dark:border-dark-650"></span>
+                </div>
+        
+                <div class="flex justify-between md:grow">
+                    <!-- Top Nav -->
+                    <nav class="hidden md:flex">
+                        <ul class="flex flex-col mb-4 md:pl-16 md:mb-0 md:flex-row md:items-center">
+                            <li class="md:mr-6">
+                                <a class="block py-2 text-sm text-gray-400 whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200 md:mb-0" href="https://retype.com/guides/getting-started/">Getting Started</a>
+                            </li>
+                        </ul>
+                    </nav>
+        
+                    <!-- Header Right Skeleton -->
+                    <div v-cloak class="flex justify-end grow skeleton">
+        
+                        <!-- Search input mock -->
+                        <div class="relative hidden w-40 lg:block lg:max-w-sm lg:ml-auto">
+                            <div class="absolute flex items-center justify-center h-full pl-3 dark:text-dark-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon-base" width="16" height="16" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation"  style="margin-bottom: 1px;"><g fill="currentColor" ><path d="M21.71 20.29l-3.68-3.68A8.963 8.963 0 0020 11c0-4.96-4.04-9-9-9s-9 4.04-9 9 4.04 9 9 9c2.12 0 4.07-.74 5.61-1.97l3.68 3.68c.2.19.45.29.71.29s.51-.1.71-.29c.39-.39.39-1.03 0-1.42zM4 11c0-3.86 3.14-7 7-7s7 3.14 7 7c0 1.92-.78 3.66-2.04 4.93-.01.01-.02.01-.02.01-.01.01-.01.01-.01.02A6.98 6.98 0 0111 18c-3.86 0-7-3.14-7-7z" ></path></g></svg>
+                            </div>
+        
+                            <input class="w-full h-10 transition-colors duration-200 ease-in bg-gray-200 border border-transparent rounded md:text-sm hover:bg-white hover:border-gray-300 focus:outline-none focus:bg-white focus:border-gray-500 dark:bg-dark-600 dark:border-dark-600 placeholder-gray-400 dark:placeholder-dark-400"
+                            style="padding: 0.625rem 0.75rem 0.625rem 2rem" type="text" placeholder="Search" />
+                        </div>
+        
+                        <!-- Mobile search button mock -->
+                        <div class="flex items-center justify-center w-10 h-10 lg:hidden">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="shrink-0 icon-base" width="20" height="20" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation"  style="margin-bottom: 0px;"><g fill="currentColor" ><path d="M21.71 20.29l-3.68-3.68A8.963 8.963 0 0020 11c0-4.96-4.04-9-9-9s-9 4.04-9 9 4.04 9 9 9c2.12 0 4.07-.74 5.61-1.97l3.68 3.68c.2.19.45.29.71.29s.51-.1.71-.29c.39-.39.39-1.03 0-1.42zM4 11c0-3.86 3.14-7 7-7s7 3.14 7 7c0 1.92-.78 3.66-2.04 4.93-.01.01-.02.01-.02.01-.01.01-.01.01-.01.02A6.98 6.98 0 0111 18c-3.86 0-7-3.14-7-7z" ></path></g></svg>
+                        </div>
+        
+                        <!-- Dark mode switch placehokder -->
+                        <div class="w-10 h-10 lg:ml-2"></div>
+        
+                        <!-- History button mock -->
+                        <div class="flex items-center justify-center w-10 h-10" style="margin-right: -0.625rem;">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="shrink-0 icon-base" width="22" height="22" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation"  style="margin-bottom: 0px;"><g fill="currentColor" ><g ><path d="M12.01 6.01c-.55 0-1 .45-1 1V12a1 1 0 00.4.8l3 2.22a.985.985 0 001.39-.2.996.996 0 00-.21-1.4l-2.6-1.92V7.01c.02-.55-.43-1-.98-1z"></path><path d="M12.01 1.91c-5.33 0-9.69 4.16-10.05 9.4l-.29-.26a.997.997 0 10-1.34 1.48l1.97 1.79c.19.17.43.26.67.26s.48-.09.67-.26l1.97-1.79a.997.997 0 10-1.34-1.48l-.31.28c.34-4.14 3.82-7.41 8.05-7.41 4.46 0 8.08 3.63 8.08 8.09s-3.63 8.08-8.08 8.08c-2.18 0-4.22-.85-5.75-2.4a.996.996 0 10-1.42 1.4 10.02 10.02 0 007.17 2.99c5.56 0 10.08-4.52 10.08-10.08.01-5.56-4.52-10.09-10.08-10.09z"></path></g></g></svg>
+                        </div>
+                    </div>
+        
+                    <div v-cloak class="flex justify-end grow">
+                        <div id="docs-mobile-search-button"></div>
+                        <doc-search-desktop></doc-search-desktop>
+        
+                        <doc-theme-switch class="lg:ml-2"></doc-theme-switch>
+                        <doc-history></doc-history>
+                    </div>
+                </div>
+            </div>
+        </header>
+    
+        <div class="container relative flex bg-white">
+            <!-- Sidebar Skeleton -->
+            <div v-cloak class="fixed flex flex-col shrink-0 duration-300 ease-in-out bg-gray-100 border-gray-200 sidebar top-20 w-75 border-r h-screen md:sticky transition-transform skeleton dark:bg-dark-800 dark:border-dark-650">
+            
+                <!-- Render this div, if config.showSidebarFilter is `true` -->
+                <div class="flex items-center h-16 px-6">
+                    <input class="w-full h-8 px-3 py-2 transition-colors duration-200 ease-linear bg-white border border-gray-200 rounded shadow-none text-sm focus:outline-none focus:border-gray-600 dark:bg-dark-600 dark:border-dark-600" type="text" placeholder="Filter" />
+                </div>
+            
+                <div class="pl-6 mb-4 mt-1">
+                    <div class="w-32 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                    <div class="w-48 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                    <div class="w-40 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                    <div class="w-32 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                    <div class="w-48 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                    <div class="w-40 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                </div>
+            
+                <div class="shrink-0 mt-auto bg-transparent dark:border-dark-650">
+                    <a class="flex items-center justify-center flex-nowrap h-16 text-gray-400 dark:text-dark-400 hover:text-gray-700 dark:hover:text-dark-300 transition-colors duration-150 ease-in docs-powered-by" target="_blank" href="https://retype.com/" rel="noopener">
+                        <span class="text-xs whitespace-nowrap">Powered by</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="ml-2" fill="currentColor" width="96" height="20" overflow="visible"><path d="M0 0v20h13.59V0H0zm11.15 17.54H2.44V2.46h8.71v15.08zM15.8 20h2.44V4.67L15.8 2.22zM20.45 6.89V20h2.44V9.34z"/><g><path d="M40.16 8.44c0 1.49-.59 2.45-1.75 2.88l2.34 3.32h-2.53l-2.04-2.96h-1.43v2.96h-2.06V5.36h3.5c1.43 0 2.46.24 3.07.73s.9 1.27.9 2.35zm-2.48 1.1c.26-.23.38-.59.38-1.09 0-.5-.13-.84-.4-1.03s-.73-.28-1.39-.28h-1.54v2.75h1.5c.72 0 1.2-.12 1.45-.35zM51.56 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92h4.74v1.83h-6.79V5.36h6.64zM60.09 7.15v7.48h-2.06V7.15h-2.61V5.36h7.28v1.79h-2.61zM70.81 14.64h-2.06v-3.66l-3.19-5.61h2.23l1.99 3.45 1.99-3.45H74l-3.19 5.61v3.66zM83.99 6.19c.65.55.97 1.4.97 2.55s-.33 1.98-1 2.51-1.68.8-3.04.8h-1.23v2.59h-2.06V5.36h3.26c1.42 0 2.45.28 3.1.83zm-1.51 3.65c.25-.28.37-.69.37-1.22s-.16-.92-.48-1.14c-.32-.23-.82-.34-1.5-.34H79.7v3.12h1.38c.68 0 1.15-.14 1.4-.42zM95.85 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92H96v1.83h-6.79V5.36h6.64z"/></g></svg>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Sidebar component -->
+            <doc-sidebar v-cloak>
+                <template #sidebar-footer>
+                    <div class="shrink-0 mt-auto border-t md:bg-transparent md:border-none dark:border-dark-650">
+            
+                        <div class="py-3 px-6 md:hidden border-b dark:border-dark-650">
+                            <nav>
+                                <ul class="flex flex-wrap justify-center items-center">
+                                    <li class="mr-6">
+                                        <a class="block py-1 text-sm whitespace-nowrap transition-colors duration-200 ease-linear text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://retype.com/guides/getting-started/">Getting Started</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+            
+                        <a class="flex items-center justify-center flex-nowrap h-16 text-gray-400 dark:text-dark-400 hover:text-gray-700 dark:hover:text-dark-300 transition-colors duration-150 ease-in docs-powered-by" target="_blank" href="https://retype.com/" rel="noopener">
+                            <span class="text-xs whitespace-nowrap">Powered by</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="ml-2" fill="currentColor" width="96" height="20" overflow="visible"><path d="M0 0v20h13.59V0H0zm11.15 17.54H2.44V2.46h8.71v15.08zM15.8 20h2.44V4.67L15.8 2.22zM20.45 6.89V20h2.44V9.34z"/><g><path d="M40.16 8.44c0 1.49-.59 2.45-1.75 2.88l2.34 3.32h-2.53l-2.04-2.96h-1.43v2.96h-2.06V5.36h3.5c1.43 0 2.46.24 3.07.73s.9 1.27.9 2.35zm-2.48 1.1c.26-.23.38-.59.38-1.09 0-.5-.13-.84-.4-1.03s-.73-.28-1.39-.28h-1.54v2.75h1.5c.72 0 1.2-.12 1.45-.35zM51.56 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92h4.74v1.83h-6.79V5.36h6.64zM60.09 7.15v7.48h-2.06V7.15h-2.61V5.36h7.28v1.79h-2.61zM70.81 14.64h-2.06v-3.66l-3.19-5.61h2.23l1.99 3.45 1.99-3.45H74l-3.19 5.61v3.66zM83.99 6.19c.65.55.97 1.4.97 2.55s-.33 1.98-1 2.51-1.68.8-3.04.8h-1.23v2.59h-2.06V5.36h3.26c1.42 0 2.45.28 3.1.83zm-1.51 3.65c.25-.28.37-.69.37-1.22s-.16-.92-.48-1.14c-.32-.23-.82-.34-1.5-.34H79.7v3.12h1.38c.68 0 1.15-.14 1.4-.42zM95.85 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92H96v1.83h-6.79V5.36h6.64z"/></g></svg>
+                        </a>
+                    </div>
+                </template>
+            </doc-sidebar>
+    
+            <div class="grow min-w-0 dark:bg-dark-850">
+                <!-- Render "toolbar" template here on api pages --><!-- Render page content -->
+                <div class="flex">
+                    <div class="grow min-w-0 px-6 md:px-16">
+                        <main class="relative pt-6 pb-16">
+                            <div class="docs-markdown" id="docs-content">
+                                <!-- Rendered if sidebar right is enabled -->
+                                <div id="docs-sidebar-right-toggle"></div>
+                
+                                <!-- Page content  -->
+<doc-anchor-target id="kubernetes" class="break-words">
+    <h1>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#kubernetes">#</doc-anchor-trigger>
+        <span>Kubernetes</span>
+    </h1>
+</doc-anchor-target>
+<p>Rancher Kubernetes is using Docker as container runtime/engine.</p>
+<p>Kubernetes internal communication):
+<code v-pre>&lt;KUBERNETES_SERVICE_NAME&gt;:&lt;APPLICATION_PORT&gt;</code></p>
+<p>Kubernetes internal communication (pods in different namespaces):
+<code v-pre>&lt;KUBERNETES_SERVICE_NAME&gt;.&lt;KUBERNETES_NAMESPACE&gt;:&lt;APPLICATION_PORT&gt;</code></p>
+<doc-anchor-target id="resources">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#resources">#</doc-anchor-trigger>
+        <span>Resources</span>
+    </h2>
+</doc-anchor-target>
+<doc-anchor-target id="secrets">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#secrets">#</doc-anchor-trigger>
+        <span><a href="https://kubernetes.io/docs/concepts/configuration/secret/">Secrets</a></span>
+    </h3>
+</doc-anchor-target>
+<p><em>A Secret is an object that contains a small amount of sensitive data such as a password, a token, or a key. Such information might otherwise be put in a <a href="https://kubernetes.io/docs/concepts/workloads/pods/">Pod</a> specification or in a <a href="https://kubernetes.io/docs/reference/glossary/?all=true#term-image">container image</a>. Using a Secret means that you don&#x27;t need to include confidential data in your application code.</em></p>
+<doc-anchor-target id="creating-secrets">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#creating-secrets">#</doc-anchor-trigger>
+        <span>Creating Secrets</span>
+    </h4>
+</doc-anchor-target>
+<p><strong>Kubectl (example for USERNAME and PASSWORD)</strong></p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-shell-session"><code v-pre class="language-shell-session">kubectl create secret generic &lt;SECRET_NAME&gt; -n &lt;NAMESPACE&gt; --from-literal=&lt;USERNAME_VARIABLE&gt;=&lt;USERNAME&gt; --from-literal=&lt;PASSWORD_VARIABLE&gt;=&lt;PASSWORD&gt;</code></pre>
+</doc-codeblock></div>
+<p><strong>YAML</strong></p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-yaml"><code v-pre class="language-yaml">apiVersion: v1
+kind: Secret
+metadata:
+ name: &lt;SECRET_NAME&gt;
+stringData:
+ &lt;USERNAME_VARIABLE&gt;: &lt;USERNAME&gt;
+ &lt;PASSWORD_VARIABLE&gt;: &lt;PASSWORD&gt;</code></pre>
+</doc-codeblock></div>
+<p><a href="https://medium.com/avmconsulting-blog/secrets-management-in-kubernetes-378cbf8171d0#:%7E:text=Kubernetes%20Secrets%20are%20secure%20objects%20which%20store%20sensitive%20data%2C%20such,how%20sensitive%20data%20is%20used">Useful article</a></p>
+<doc-anchor-target id="resource-management">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#resource-management">#</doc-anchor-trigger>
+        <span>Resource Management</span>
+    </h2>
+</doc-anchor-target>
+<p>By default, containers run with unbounded <a href="https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/">compute resources</a> on a Kubernetes cluster. With resource quotas, cluster administrators can restrict resource consumption and creation on a <a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces">namespace</a> basis. Within a namespace, a Pod or Container can consume as much CPU and memory as defined by the namespace&#x27;s resource quota or by its limits.
+-&gt; <a href="https://www.puzzle.ch/de/blog/articles/2021/11/04/basic-kubernetes-resource-management">Basic Resource Management</a></p>
+<doc-anchor-target id="requests--limits-containers">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#requests--limits-containers">#</doc-anchor-trigger>
+        <span>Requests &amp; Limits (Containers)</span>
+    </h3>
+</doc-anchor-target>
+<p>*When you specify a <a href="https://kubernetes.io/docs/concepts/workloads/pods/">Pod</a>, you can optionally specify how much of each resource a <a href="https://kubernetes.io/docs/concepts/containers/">container</a> needs.</p>
+<ul>
+<li><em><strong>Requests:</strong> When you specify the resource <strong>request</strong> for containers in a Pod, the <a href="https://kubernetes.io/docs/reference/command-line-tools-reference/kube-scheduler/">kube-scheduler</a> uses this information to decide <strong>which node to place the Pod on and reserves</strong> at least the <strong>request</strong> amount of that system resource specifically for that container to use.</em></li>
+<li><em><strong>Limits:</strong> When you specify a resource <strong>limit</strong> for a container, the kubelet <strong>enforces those limits so that the running container is not allowed to use more</strong> of that resource than the limit you set.</em></li>
+</ul>
+<blockquote>
+<p><strong>Note:</strong> If a container specifies its own cpu/memory limit, but does not specify a cpu/memory request, Kubernetes automatically assigns a cpu/memory request that matches the limit.</p>
+</blockquote>
+<doc-anchor-target id="example-request--limit">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#example-request--limit">#</doc-anchor-trigger>
+        <span>Example: Request &amp; Limit</span>
+    </h4>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-yaml"><code v-pre class="language-yaml">...
+    resources:
+      requests:
+        cpu: &quot;100m&quot;
+        memory: &quot;50Mi&quot;
+      limits:
+        cpu: &quot;1500m&quot;
+        memory: &quot;500Mi&quot;</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="compute-resource-quotas-namespace">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#compute-resource-quotas-namespace">#</doc-anchor-trigger>
+        <span>Compute Resource Quotas (Namespace)</span>
+    </h3>
+</doc-anchor-target>
+<p><em>A <strong>resource quota</strong>, defined by a <code v-pre>ResourceQuota</code> object, provides constraints that <strong>limit aggregate resource consumption (REQUESTS &amp; LIMITS) per namespace</strong>. It can limit the quantity of objects that can be created in a namespace by type, as well as the total amount of compute resources that may be requested or limited by resources in that namespace.</em></p>
+<doc-anchor-target id="limit-ranges">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#limit-ranges">#</doc-anchor-trigger>
+        <span>Limit Ranges</span>
+    </h3>
+</doc-anchor-target>
+<p><em>A LimitRange is a policy to constrain resource allocations (to Pods or Containers) in a namespace and can provides constraints that can:</em></p>
+<ul>
+<li>Enforce minimum and maximum compute resources usage per Pod or Container in a namespace.</li>
+<li>Enforce minimum and maximum storage request per PersistentVolumeClaim in a namespace.</li>
+<li>Enforce a ratio between request and limit for a resource in a namespace.</li>
+<li>Set default request/limit for compute resources in a namespace and automatically inject them to Containers at runtime.</li>
+</ul>
+<doc-anchor-target id="example-limit-range">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#example-limit-range">#</doc-anchor-trigger>
+        <span>Example Limit Range</span>
+    </h4>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-yaml"><code v-pre class="language-yaml">apiVersion: v1
+kind: LimitRange
+metadata:
+  name: default-limit-range
+spec:
+  limits:
+  - default:
+      cpu: 300m
+      memory: 20Mi
+    defaultRequest:
+      cpu: 50m
+      memory: 10Mi
+    type: Container</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="known-errors">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#known-errors">#</doc-anchor-trigger>
+        <span>Known-Errors</span>
+    </h3>
+</doc-anchor-target>
+<p><strong>Error:</strong> <em>Create Pod ... failed error: pods &quot;...&quot; is forbidden: failed quota: &lt;YOUR_QUOTA&gt;: must specify limits.cpu,limits.memory</em>
+<strong>Solution:</strong> Add limits to your container deployment.</p>
+<p><strong>Error:</strong> <em>Create Pod ... failed error: pods &quot;...&quot; is forbidden: exceeded quota: &lt;YOUR_QUOTA&gt;, requested: limits.cpu=1600m, used: limits.cpu=1, limited: limits.cpu=2500m</em>
+<strong>Solution:</strong> In this example my quota is exceeded (<code v-pre>limited - (requested + used) = -100m</code>). -&gt; Increase your quota by at least 100m.</p>
+<doc-anchor-target id="vertical-pod-autoscaler">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#vertical-pod-autoscaler">#</doc-anchor-trigger>
+        <span>Vertical Pod Autoscaler</span>
+    </h3>
+</doc-anchor-target>
+<ul class="contains-task-list">
+<li class="task-list-item"><input disabled="disabled" type="checkbox" /> Doku Vertical Pod Autoscaler #todo</li>
+</ul>
+<doc-anchor-target id="persistent-volumes">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#persistent-volumes">#</doc-anchor-trigger>
+        <span>Persistent Volumes</span>
+    </h2>
+</doc-anchor-target>
+<p><a href="https://www.vshn.ch/blog/benchmarking-kubernetes-storage-solutions/">Benchmarking Kubernetes Storage Solutions</a></p>
+<doc-anchor-target id="longhorn">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#longhorn">#</doc-anchor-trigger>
+        <span>Longhorn</span>
+    </h3>
+</doc-anchor-target>
+<p><a href="https://github.com/longhorn/longhorn">_Longhorn</a> delivers simplified, easy to deploy and upgrade, 100% open source, cloud-native hyper-converged persistent block storage without the cost overhead of open core or proprietary alternatives._</p>
+<p>Project source code is spread across a number of repos:
+| Component                      | What it does                                                           | GitHub repo                            |
+|:------------------------------ |:---------------------------------------------------------------------- |:-------------------------------------- |
+| Longhorn Backing Image Manager | Backing image download, sync, and deletion in a disk                   | <a href="https://github.com/longhorn/backing-image-manager">longhorn/backing-image-manager</a>       |
+| Longhorn Engine                | Core controller/replica logic                                          | <a href="https://github.com/longhorn/longhorn-engine">longhorn/longhorn-engine</a>             |
+| Longhorn Instance Manager      | Controller/replica instance lifecycle management                       | <a href="https://github.com/longhorn/longhorn-instance-manager">longhorn/longhorn-instance-manager</a>   |
+| Longhorn Manager               | Longhorn orchestration, includes CSI driver for Kubernetes             | <a href="https://github.com/longhorn/longhorn-manager">longhorn/longhorn-manager</a>            |
+| Longhorn Share Manager         | NFS provisioner that exposes Longhorn volumes as ReadWriteMany volumes | <a href="https://github.com/longhorn/longhorn-share-manager">longhorn/longhorn-share-manager</a>      |
+| Longhorn UI                    | The Longhorn dashboard                                                 | <a href="https://github.com/longhorn/longhorn-ui">longhorn/longhorn-ui</a>                 |</p>
+<doc-anchor-target id="creating-longhorn-persistent-volumes-using-rancher">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#creating-longhorn-persistent-volumes-using-rancher">#</doc-anchor-trigger>
+        <span>Creating Longhorn Persistent Volumes using Rancher</span>
+    </h4>
+</doc-anchor-target>
+<ul>
+<li>Create Project (I named it <em>Storage</em>)</li>
+<li>In Rancher GUI: Cluster Tools -&gt; Longhorn -&gt; Install (default settings)</li>
+<li>*If you want:
+<ul>
+<li>changing storage reserve (Longhorn GUI -&gt; Node -&gt; Edit node and disks)*</li>
+<li>changing the storage overprovisioning percentage to 200% (Longhorn GUI -&gt; Setting -&gt; General -&gt; Stroage Over...)</li>
+</ul>
+</li>
+<li>Now you have a new StorageClass called <em>longhorn</em> and it is ready to use.</li>
+</ul>
+<doc-anchor-target id="performance">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#performance">#</doc-anchor-trigger>
+        <span>Performance</span>
+    </h4>
+</doc-anchor-target>
+<p>Currently there is a big discussion about Longhorns performance, more details in the <a href="https://github.com/longhorn/longhorn/issues/1541">GitHub Issue</a>.
+<em>-&gt; Maybe this will be better in the future</em></p>
+<doc-anchor-target id="monitoring">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#monitoring">#</doc-anchor-trigger>
+        <span>Monitoring</span>
+    </h4>
+</doc-anchor-target>
+<p><a href="https://longhorn.io/docs/latest/monitoring/prometheus-and-grafana-setup/">Monitoring Longhorn</a> is simple. All you need is:</p>
+<ul>
+<li>A running Prometheus instance</li>
+<li>A Kubernetes ServiceMonitor for Longhorn</li>
+</ul>
+<p><strong>Example: ServiceMonitor for Longhorn</strong>
+Longhorn ServiceMonitor has a label selector <code v-pre>app: longhorn-manager</code> to select Longhorn backend service. Later on, the Prometheus CRD can include Longhorn ServiceMonitor so that the Prometheus server can discover all Longhorn manager pods and their endpoints. Deploy the ServiceMonitor in the same namespace as Prometheus.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-yaml"><code v-pre class="language-yaml">apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: longhorn-prometheus-servicemonitor
+  labels:
+    name: longhorn-prometheus-servicemonitor
+spec:
+  selector:
+    matchLabels:
+      app: longhorn-manager
+  namespaceSelector:
+    matchNames:
+      - longhorn-system
+  endpoints:
+    - port: manager</code></pre>
+</doc-codeblock></div>
+<p><strong>IMPORTANT:</strong> Unfortunately in my case the Prometheus Operator has not automatically found the new created ServiceMonitor.
+So I had to disable serviceMonitorSelectorNilUsesHelmValues and podMonitorSelectorNilUsesHelmValues like this (more information&#x27;s in the <a href="https://github.com/helm/charts/issues/13196">GitHub issue</a>):</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-yaml"><code v-pre class="language-yaml">prometheus:
+  prometheusSpec:
+    serviceMonitorSelectorNilUsesHelmValues: false
+    podMonitorSelectorNilUsesHelmValues: false</code></pre>
+</doc-codeblock></div>
+<p>Longhorn also offers a <a href="https://grafana.com/grafana/dashboards/13032">Grafana Dashboard</a> (ID: 13032) that can be imported.</p>
+<doc-anchor-target id="rook">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#rook">#</doc-anchor-trigger>
+        <span>Rook</span>
+    </h3>
+</doc-anchor-target>
+<p><em><a href="https://rook.io/">Rook</a> is a open-source Cloud-Native storage for Kubernetes that is a production ready management for File, Block and Object Storage by using Ceph. There are other storage providers like <a href="https://github.com/k8ssandra/cass-operator/">Cassandra</a> and <a href="https://github.com/rook/nfs">NFS</a> (Alpha). Rook turns distributed storage systems into self-managing, self-scaling, self-healing storage services. It automates the tasks of a storage administrator: deployment, bootstrapping, configuration, provisioning, scaling, upgrading, migration, disaster recovery, monitoring, and resource management.</em></p>
+<doc-anchor-target id="piraeus">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#piraeus">#</doc-anchor-trigger>
+        <span>Piraeus</span>
+    </h3>
+</doc-anchor-target>
+<p><a href="https://itnext.io/state-of-persistent-storage-in-k8s-a-benchmark-77a96bb1ac29">https://itnext.io/state-of-persistent-storage-in-k8s-a-benchmark-77a96bb1ac29</a></p>
+<p><a href="https://github.com/piraeusdatastore/piraeus">Piraeus-Project</a>
+<a href="https://github.com/piraeusdatastore/piraeus-operator">Piraeus-Operator</a></p>
+<doc-anchor-target id="taints--tolerations">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#taints--tolerations">#</doc-anchor-trigger>
+        <span>Taints &amp; Tolerations</span>
+    </h2>
+</doc-anchor-target>
+<p><em><a href="https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/">Taints</a> and <a href="https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/">tolerations</a> are a mechanism that allows you to ensure that pods are not placed on inappropriate nodes. <strong><a href="https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/">Taints</a> are added to nodes, while <a href="https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/">tolerations</a> are defined in the pod specification.</strong> When you taint a node, it will repel all the pods except those that have a toleration for that taint. A node can have one or many taints associated with it.
+For example, most Kubernetes distributions will automatically taint the master nodes so that one of the pods that manages the control plane is scheduled onto them and not any other data plane pods deployed by users. This ensures that the master nodes are dedicated to run control plane pods.</em> -&gt; <strong><a href="https://www.densify.com/kubernetes-autoscaling/kubernetes-taints">Useful Guide</a></strong></p>
+<doc-anchor-target id="taint-effects">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#taint-effects">#</doc-anchor-trigger>
+        <span>Taint Effects</span>
+    </h3>
+</doc-anchor-target>
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Effect</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NoSchedule</td>
+<td>The Kubernetes scheduler will only <strong>allow</strong> scheduling <strong>pods that have tolerations</strong> for the tainted nodes.</td>
+</tr>
+<tr>
+<td>PreferNoSchedule</td>
+<td>The Kubernetes scheduler will try to <strong>avoid</strong> scheduling <strong>pods that don’t have tolerations</strong> for the tainted nodes.</td>
+</tr>
+<tr>
+<td>NoExecute</td>
+<td>Kubernetes will <strong>evict the running pods</strong> from the nodes if the pods <strong>don’t have tolerations</strong> for the tainted nodes.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<doc-anchor-target id="taint-operations">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#taint-operations">#</doc-anchor-trigger>
+        <span>Taint Operations</span>
+    </h3>
+</doc-anchor-target>
+<p>The default value for <code v-pre>operator</code> is <code v-pre>Equal</code>. A toleration &quot;matches&quot; a taint if the keys are the same and the effects are the same, and:</p>
+<ul>
+<li>the <code v-pre>operator</code> is <code v-pre>Exists</code> (in which case no <code v-pre>value</code> should be specified), or</li>
+<li>the <code v-pre>operator</code> is <code v-pre>Equal</code> and the <code v-pre>value</code>s are equal.</li>
+</ul>
+<blockquote>
+<p><strong>NOTE:</strong> There are two special cases:
+An empty <code v-pre>key</code> with operator <code v-pre>Exists</code> matches all keys, values and effects which means this will tolerate everything.
+An empty <code v-pre>effect</code> matches all effects with key <code v-pre>key1</code>.</p>
+</blockquote>
+<doc-anchor-target id="commands">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#commands">#</doc-anchor-trigger>
+        <span>Commands</span>
+    </h3>
+</doc-anchor-target>
+<p>Get taints of all nodes:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-shell-session"><code v-pre class="language-shell-session">kubectl get nodes -o=custom-columns=NodeName:.metadata.name,TaintKey:.spec.taints[*].key,TaintValue:.spec.taints[*].value,TaintEffect:.spec.taints[*].effect</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="example-deploy-pod-on-controlplaneetcd-nodes">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#example-deploy-pod-on-controlplaneetcd-nodes">#</doc-anchor-trigger>
+        <span>Example: Deploy Pod on Controlplane/etcd Nodes</span>
+    </h3>
+</doc-anchor-target>
+<p>For example you want to monitor your Kubernetes cluster using <em>Prometheus Node Exporter</em>, but your <em>Prometheus Node Exporter</em> pods are only deployed on the worker nodes (w01, w02 &amp; w03). This is because you forgot define tolerations to your pods specification. To add this toleration to your pods, first check your nodes taint configurations. The following is an example:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-shell-session"><code v-pre class="language-shell-session">NodeName   TaintKey                                                            TaintValue   TaintEffect
+cp01       node-role.kubernetes.io/controlplane,node-role.kubernetes.io/etcd   true,true    NoSchedule,NoExecute
+w01        &lt;none&gt;                                                              &lt;none&gt;       &lt;none&gt;
+w02        &lt;none&gt;                                                              &lt;none&gt;       &lt;none&gt;
+w03        &lt;none&gt;                                                              &lt;none&gt;       &lt;none&gt;</code></pre>
+</doc-codeblock></div>
+<p>Now you know the taints and can configure the tolerations. Because I used the <em>Prometheus-Operator Helm chart</em> to deploy all <em>Prometheus Node Exporter</em> I had to add following in my Helm values:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-yaml"><code v-pre class="language-yaml">prometheus-node-exporter:
+  tolerations:
+    - key: node-role.kubernetes.io/controlplane
+      operator: &quot;Exists&quot;
+      effect: NoSchedule
+    - key: node-role.kubernetes.io/etcd
+      operator: &quot;Exists&quot;
+      effect: NoExecute</code></pre>
+</doc-codeblock></div>
+<p><em>-&gt; Normally this tolerations are defined in <code v-pre>spec.tolerations:</code></em></p>
+<doc-anchor-target id="tolerating-all-taints">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#tolerating-all-taints">#</doc-anchor-trigger>
+        <span>Tolerating all Taints</span>
+    </h3>
+</doc-anchor-target>
+<p>You can configure a pod to tolerate all taints by adding an <code v-pre>operator: &quot;Exists&quot;</code> toleration with no <code v-pre>key</code> and <code v-pre>value</code> parameters. Pods with this toleration are not removed from a node that has taints.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-yaml"><code v-pre class="language-yaml">...
+  tolerations: 
+    - operator: &quot;Exists&quot;</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="default-tolerations-on-namespace">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#default-tolerations-on-namespace">#</doc-anchor-trigger>
+        <span>Default Tolerations on Namespace</span>
+    </h3>
+</doc-anchor-target>
+<p>There is a feature called <a href="https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#podtolerationrestriction"><em>PodTolerationRestriction</em></a> to define default tolerations on namespace level. Example for namespace annotations:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-yaml"><code v-pre class="language-yaml">apiVersion: v1
+kind: Namespace
+metadata:
+  name: apps-that-need-nodes-exclusively
+  annotations:
+    scheduler.alpha.kubernetes.io/defaultTolerations: '[{&quot;operator&quot;: &quot;Exists&quot;, &quot;effect&quot;: &quot;NoSchedule&quot;, &quot;key&quot;: &quot;dedicated-node&quot;}]'
+    scheduler.alpha.kubernetes.io/tolerationsWhitelist: '[{&quot;operator&quot;: &quot;Exists&quot;, &quot;effect&quot;: &quot;NoSchedule&quot;, &quot;key&quot;: &quot;dedicated-node&quot;}]'</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="security">
+    <h1>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#security">#</doc-anchor-trigger>
+        <span>Security</span>
+    </h1>
+</doc-anchor-target>
+<doc-anchor-target id="network-policies">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#network-policies">#</doc-anchor-trigger>
+        <span>Network Policies</span>
+    </h2>
+</doc-anchor-target>
+<ul class="contains-task-list">
+<li class="task-list-item"><input disabled="disabled" type="checkbox" /> Dokumenttation Network Policies #todo</li>
+</ul>
+<doc-anchor-target id="kubernetes-tools">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#kubernetes-tools">#</doc-anchor-trigger>
+        <span>Kubernetes Tools</span>
+    </h2>
+</doc-anchor-target>
+<doc-anchor-target id="kubernetes-local-testing-purposes">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#kubernetes-local-testing-purposes">#</doc-anchor-trigger>
+        <span>Kubernetes local (Testing purposes)</span>
+    </h3>
+</doc-anchor-target>
+<p>Recommended: <a href="https://rancherdesktop.io/">https://rancherdesktop.io/</a></p>
+<doc-anchor-target id="kaniko">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#kaniko">#</doc-anchor-trigger>
+        <span>Kaniko</span>
+    </h3>
+</doc-anchor-target>
+<p>With Kaniko you are able to build container images on Kubernetes without root or privileged mode.</p>
+<doc-anchor-target id="troubleshooting">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#troubleshooting">#</doc-anchor-trigger>
+        <span>Troubleshooting</span>
+    </h2>
+</doc-anchor-target>
+<ul>
+<li><a href="kubectl.md#Kubectl%20Get%20Containers%20Resource%20Configuration%20find%20Containers%20without%20configured%20Resources">Kubectl: Get Containers Resource Configuration</a> / <a href="../../monitoring/prometheus.md#Find%20Containers%20without%20configured%20Resources%20limits">Prometheus: Find Containers without configured Resources</a></li>
+</ul>
+<doc-anchor-target id="prometheus-find-containers-without-configured-resources-limits">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#prometheus-find-containers-without-configured-resources-limits">#</doc-anchor-trigger>
+        <span>Prometheus: <a href="../../monitoring/prometheus.md#Find%20Containers%20without%20configured%20Resources%20limits">Find Containers without configured Resources (limits)</a></span>
+    </h3>
+</doc-anchor-target>
+
+                                
+                                <!-- Required only on API pages -->
+                                <doc-toolbar-member-filter-no-results />
+                            </div>
+                            <footer class="clear-both">
+                            
+                                <nav class="flex mt-14">
+                                    <div class="w-1/2">
+                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="/obsidiantest/anotherfolder/formatting/">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+                                            <span>
+                                                <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
+                                                <span class="block mt-1">Test Link</span>
+                                            </span>
+                                        </a>
+                                    </div>
+                            
+                                    <div class="w-1/2">
+                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="/obsidiantest/folder1/test/">
+                                            <span>
+                                                <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
+                                                <span class="block mt-1">Test</span>
+                                            </span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+                                        </a>
+                                    </div>
+                                </nav>
+                            </footer>
+                        </main>
+                
+                        <div class="border-t dark:border-dark-650 pt-6 mb-8">
+                            <footer class="flex flex-wrap items-center justify-between">
+                                <div>
+                                    <ul class="flex flex-wrap items-center text-sm">
+                                    </ul>
+                                </div>
+                                <div class="docs-copyright py-2 text-gray-500 dark:text-dark-350 text-sm leading-relaxed"><p>© Copyright 2022. All rights reserved.</p></div>
+                            </footer>
+                        </div>
+                    </div>
+                
+                    <!-- Rendered if sidebar right is enabled -->
+                    <!-- Sidebar right skeleton-->
+                    <div v-cloak class="fixed top-0 bottom-0 right-0 translate-x-full bg-white border-gray-200 lg:sticky lg:border-l lg:shrink-0 lg:pt-6 lg:transform-none sm:w-1/2 lg:w-64 lg:z-0 md:w-104 sidebar-right skeleton dark:bg-dark-850 dark:border-dark-650">
+                        <div class="pl-5">
+                            <div class="w-32 h-3 mb-4 bg-gray-200 dark:bg-dark-600 rounded-full loading"></div>
+                            <div class="w-48 h-3 mb-4 bg-gray-200 dark:bg-dark-600 rounded-full loading"></div>
+                            <div class="w-40 h-3 mb-4 bg-gray-200 dark:bg-dark-600 rounded-full loading"></div>
+                        </div>
+                    </div>
+                
+                    <!-- User should be able to hide sidebar right -->
+                    <doc-sidebar-right v-cloak></doc-sidebar-right>
+                </div>
+
+            </div>
+        </div>
+    
+        <doc-search-mobile></doc-search-mobile>
+        <doc-back-to-top></doc-back-to-top>
+    </div>
+
+
+    <div id="docs-overlay-target"></div>
+
+    <script>window.__DOCS__ = { "title": "Kubernetes", icon: "file", hasPrism: true, hasMermaid: false, hasMath: false }</script>
+</body>
+</html>
