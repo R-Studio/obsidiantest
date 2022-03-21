@@ -30,12 +30,12 @@
 
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("/obsidiantest/doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="/obsidiantest/resources/css/retype.css?v=2.0.701184441675" rel="stylesheet" data-turbo-track="reload" />
+    <link href="/obsidiantest/resources/css/retype.css?v=2.0.701184927830" rel="stylesheet" data-turbo-track="reload" />
 
-    <script type="text/javascript" src="/obsidiantest/resources/js/config.js?v=2.0.701184441675" defer data-turbo-track="reload"></script>
+    <script type="text/javascript" src="/obsidiantest/resources/js/config.js?v=2.0.701184927830" defer data-turbo-track="reload"></script>
     <script type="text/javascript" src="/obsidiantest/resources/js/retype.js?v=2.0" defer data-turbo-track="reload"></script>
-    <script id="lunr-js" type="text/javascript" src="/obsidiantest/resources/js/lunr.js?v=2.0.701184441675" defer></script>
-    <script id="prism-js" type="text/javascript" src="/obsidiantest/resources/js/prism.js?v=2.0.701184441675" defer></script>
+    <script id="lunr-js" type="text/javascript" src="/obsidiantest/resources/js/lunr.js?v=2.0.701184927830" defer></script>
+    <script id="prism-js" type="text/javascript" src="/obsidiantest/resources/js/prism.js?v=2.0.701184927830" defer></script>
 
     <style>
         .container {
@@ -178,7 +178,7 @@
         <span>Docker</span>
     </h1>
 </doc-anchor-target>
-<p><em>Docker is an open platform for developing, shipping, and running applications. Docker enables you to separate your applications from your infrastructure so you can deliver software quickly.</em>
+<p><em>Docker is an open platform for developing, shipping, and running applications. Docker enables you to separate your applications from your infrastructure so you can deliver software quickly.</em><br />
 <figure class="content-center">
     <img src="../../zz/images/docker_overview.png" alt="" />
     <figcaption class="caption"></figcaption>
@@ -193,7 +193,7 @@
 <p>Pull Docker image: <code v-pre>docker pull nginx</code></p>
 <p>Start container detached (without switching the context to the container): <code v-pre>docker run -tid nginx</code></p>
 <p>Run something in a container (example /bin/bash): <code v-pre>docker exec -ti &lt;CONTAINER_ID&gt; /bin/bash</code></p>
-<p>Remove Container: <code v-pre>docker rm -f &lt;CONTAINER_ID&gt;</code>
+<p>Remove Container: <code v-pre>docker rm -f &lt;CONTAINER_ID&gt;</code><br />
 Remove Container Image: <code v-pre>docker rmi &lt;IMAGE_ID&gt;</code></p>
 <p>Container Port forwarding (&lt;EXTERNAL_PORT&gt;:&lt;INTERNAL_PORT&gt;): <code v-pre>docker run -tid -p 8080:80 --name test_webserver nginx</code></p>
 <p>Docker logs (watchdog): <code v-pre>docker logs &lt;CONTAINER_ID&gt; --tail 100 -f</code></p>
@@ -258,12 +258,12 @@ ENTRYPOINT [&quot;/opt/test.bash&quot;]</code></pre>
         <span>Layers</span>
     </h3>
 </doc-anchor-target>
-<p>![[../zz/images/docker_layers.png]]
+<p>![[../zz/images/docker_layers.png]]<br />
 Basically, a layer, or <em>image layer</em> is a change on an image, or an <strong>intermediate image</strong>. Every command you specify (<code v-pre>FROM</code>, <code v-pre>RUN</code>, <code v-pre>COPY</code>, etc.) in your Dockerfile causes the previous image to change, thus creating a new layer. You can think of it as staging changes when you&#x27;re using git: You add a file&#x27;s change, then another one, then another one...</p>
 <blockquote>
 <p><strong>Important:</strong> Use as less layers (commands) as possible (this decrease build time of a image).</p>
 </blockquote>
-<p>If you create a Docker image and in your build process you want to compile for example some code in Go. Don&#x27;t use a Go Docker image or install Go in your image.
+<p>If you create a Docker image and in your build process you want to compile for example some code in Go. Don&#x27;t use a Go Docker image or install Go in your image.<br />
 Although there is nothing technically wrong with the above process, the final image and the resulting container are bloated with layers created while building/preparing the project artefact that are not necessary for the project’s runtime environment.<br />
 Multi-stage builds allow you to separate the creation/preparation phases from the runtime environment. More information in the next chapter...</p>
 <doc-anchor-target id="docker-multi-stage-builds">
@@ -272,9 +272,9 @@ Multi-stage builds allow you to separate the creation/preparation phases from th
         <span>Docker Multi-Stage Builds</span>
     </h4>
 </doc-anchor-target>
-<p>![[../zz/images/docker_multistage.png]]
+<p>![[../zz/images/docker_multistage.png]]<br />
 You can still have a single Dockerfile to define your complete build workflow. However, you can copy artefacts from one stage to another while discarding the data in layers you don’t need.</p>
-<p><strong>Example:</strong>
+<p><strong>Example:</strong><br />
 <em>The ratelimiter binary is built inside the golang based environment and then used in an alpine environment.</em></p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-docker"><code v-pre class="language-docker">FROM golang:1.10.4 as build
@@ -299,10 +299,10 @@ COPY --from=build /go/bin/service_cmd /usr/local/bin/ratelimit</code></pre>
     </h3>
 </doc-anchor-target>
 <ol>
-<li>Figure out what kind of shell is in there <code v-pre>bash</code> or <code v-pre>sh</code>...
-Inspect the image first: <code v-pre>docker inspect name-of-container-or-image</code>
+<li>Figure out what kind of shell is in there <code v-pre>bash</code> or <code v-pre>sh</code>...<br />
+Inspect the image first: <code v-pre>docker inspect name-of-container-or-image</code><br />
 Look for <code v-pre>entrypoint</code> or <code v-pre>cmd</code> in the JSON return.</li>
-<li>Then do: <code v-pre>docker run --rm -it --entrypoint=/bin/bash name-of-image</code>
+<li>Then do: <code v-pre>docker run --rm -it --entrypoint=/bin/bash name-of-image</code><br />
 once inside do: <code v-pre>ls -lsa</code> or any other shell command like: <code v-pre>cd ..</code></li>
 </ol>
 <p><em>The <code v-pre>-it</code> stands for interactive... and TTY. The <code v-pre>--rm</code> stands for remove container after run.</em></p>

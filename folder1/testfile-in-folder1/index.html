@@ -30,12 +30,12 @@
 
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("/obsidiantest/doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="/obsidiantest/resources/css/retype.css?v=2.0.701184441675" rel="stylesheet" data-turbo-track="reload" />
+    <link href="/obsidiantest/resources/css/retype.css?v=2.0.701184927830" rel="stylesheet" data-turbo-track="reload" />
 
-    <script type="text/javascript" src="/obsidiantest/resources/js/config.js?v=2.0.701184441675" defer data-turbo-track="reload"></script>
+    <script type="text/javascript" src="/obsidiantest/resources/js/config.js?v=2.0.701184927830" defer data-turbo-track="reload"></script>
     <script type="text/javascript" src="/obsidiantest/resources/js/retype.js?v=2.0" defer data-turbo-track="reload"></script>
-    <script id="lunr-js" type="text/javascript" src="/obsidiantest/resources/js/lunr.js?v=2.0.701184441675" defer></script>
-    <script id="prism-js" type="text/javascript" src="/obsidiantest/resources/js/prism.js?v=2.0.701184441675" defer></script>
+    <script id="lunr-js" type="text/javascript" src="/obsidiantest/resources/js/lunr.js?v=2.0.701184927830" defer></script>
+    <script id="prism-js" type="text/javascript" src="/obsidiantest/resources/js/prism.js?v=2.0.701184927830" defer></script>
 
     <style>
         .container {
@@ -214,7 +214,7 @@
     <figcaption class="caption caption-float">Build Status</figcaption>
 </figure>
 </p>
-<p>Dillinger is a cloud-enabled, mobile-ready, offline-storage compatible,
+<p>Dillinger is a cloud-enabled, mobile-ready, offline-storage compatible,<br />
 AngularJS-powered HTML5 Markdown editor.</p>
 <ul>
 <li>Type some Markdown on the left</li>
@@ -234,20 +234,20 @@ AngularJS-powered HTML5 Markdown editor.</p>
 <li>Drag and drop markdown and HTML files into Dillinger</li>
 <li>Export documents as Markdown, HTML and PDF</li>
 </ul>
-<p>Markdown is a lightweight markup language based on the formatting conventions
-that people naturally use in email.
+<p>Markdown is a lightweight markup language based on the formatting conventions<br />
+that people naturally use in email.<br />
 As <a href="http://daringfireball.net">John Gruber</a> writes on the <a href="http://daringfireball.net/projects/markdown/">Markdown site</a></p>
 <blockquote>
-<p>The overriding design goal for Markdown&#x27;s
-formatting syntax is to make it as readable
-as possible. The idea is that a
-Markdown-formatted document should be
-publishable as-is, as plain text, without
-looking like it&#x27;s been marked up with tags
+<p>The overriding design goal for Markdown&#x27;s<br />
+formatting syntax is to make it as readable<br />
+as possible. The idea is that a<br />
+Markdown-formatted document should be<br />
+publishable as-is, as plain text, without<br />
+looking like it&#x27;s been marked up with tags<br />
 or formatting instructions.</p>
 </blockquote>
-<p>This text you see here is *actually- written in Markdown! To get a feel
-for Markdown&#x27;s syntax, type some text into the left window and
+<p>This text you see here is *actually- written in Markdown! To get a feel<br />
+for Markdown&#x27;s syntax, type some text into the left window and<br />
 watch the results in the right.</p>
 <doc-anchor-target id="tech">
     <h2>
@@ -264,11 +264,11 @@ watch the results in the right.</p>
 <li><a href="http://nodejs.org">node.js</a> - evented I/O for the backend</li>
 <li><a href="http://expressjs.com">Express</a> - fast node.js network app framework <a href="http://twitter.com/tjholowaychuk">@tjholowaychuk</a></li>
 <li><a href="http://gulpjs.com">Gulp</a> - the streaming build system</li>
-<li><a href="https://breakdance.github.io/breakdance/">Breakdance</a> - HTML
+<li><a href="https://breakdance.github.io/breakdance/">Breakdance</a> - HTML<br />
 to Markdown converter</li>
 <li><a href="http://jquery.com">jQuery</a> - duh</li>
 </ul>
-<p>And of course Dillinger itself is open source with a <a href="https://github.com/joemccann/dillinger">public repository</a>
+<p>And of course Dillinger itself is open source with a <a href="https://github.com/joemccann/dillinger">public repository</a><br />
 on GitHub.</p>
 <doc-anchor-target id="installation">
     <h2>
@@ -294,7 +294,7 @@ NODE_ENV=production node app</code></pre>
         <span>Plugins</span>
     </h2>
 </doc-anchor-target>
-<p>Dillinger is currently extended with the following plugins.
+<p>Dillinger is currently extended with the following plugins.<br />
 Instructions on how to use them in your own application are linked below.</p>
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
@@ -339,7 +339,7 @@ Instructions on how to use them in your own application are linked below.</p>
     </h2>
 </doc-anchor-target>
 <p>Want to contribute? Great!</p>
-<p>Dillinger uses Gulp + Webpack for fast developing.
+<p>Dillinger uses Gulp + Webpack for fast developing.<br />
 Make a change in your file and instantaneously see your updates!</p>
 <p>Open your favorite Terminal and run these commands.</p>
 <p>First Tab:</p>
@@ -375,18 +375,18 @@ Make a change in your file and instantaneously see your updates!</p>
     </h2>
 </doc-anchor-target>
 <p>Dillinger is very easy to install and deploy in a Docker container.</p>
-<p>By default, the Docker will expose port 8080, so change this within the
-Dockerfile if necessary. When ready, simply use the Dockerfile to
+<p>By default, the Docker will expose port 8080, so change this within the<br />
+Dockerfile if necessary. When ready, simply use the Dockerfile to<br />
 build the image.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-bash"><code v-pre class="language-bash">cd dillinger
 docker build -t &lt;youruser&gt;/dillinger:${package.json.version} .</code></pre>
 </doc-codeblock></div>
-<p>This will create the dillinger image and pull in the necessary dependencies.
-Be sure to swap out <code v-pre>${package.json.version}</code> with the actual
+<p>This will create the dillinger image and pull in the necessary dependencies.<br />
+Be sure to swap out <code v-pre>${package.json.version}</code> with the actual<br />
 version of Dillinger.</p>
-<p>Once done, run the Docker image and map the port to whatever you wish on
-your host. In this example, we simply map port 8000 of the host to
+<p>Once done, run the Docker image and map the port to whatever you wish on<br />
+your host. In this example, we simply map port 8000 of the host to<br />
 port 8080 of the Docker (or whatever port was exposed in the Dockerfile):</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-bash"><code v-pre class="language-bash">docker run -d -p 8000:8080 --restart=always --cap-add=SYS_ADMIN --name=dillinger &lt;youruser&gt;/dillinger:${package.json.version}</code></pre>
@@ -394,7 +394,7 @@ port 8080 of the Docker (or whatever port was exposed in the Dockerfile):</p>
 <blockquote>
 <p>Note: <code v-pre>--capt-add=SYS-ADMIN</code> is required for PDF rendering.</p>
 </blockquote>
-<p>Verify the deployment by navigating to your server address in
+<p>Verify the deployment by navigating to your server address in<br />
 your preferred browser.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-bash"><code v-pre class="language-bash">127.0.0.1:8000</code></pre>
