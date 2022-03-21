@@ -111,7 +111,7 @@ spec:
 
 Project source code is spread across a number of repos:
  Component                      | What it does                                                           | GitHub repo   
-:------------------------------ |:----------------------- |:----------------------------------------------------------------- 
+------------------------------ |----------------------- |----------------------------------------------------------------- 
  Backing Image Manager | Backing image download, sync, and deletion in a disk                   | [longhorn/backing-image-manager](https://github.com/longhorn/backing-image-manager)         
  Engine                | Core controller/replica logic                                          | [longhorn/longhorn-engine](https://github.com/longhorn/longhorn-engine)                     
  Instance Manager      | Controller/replica instance lifecycle management                       | [longhorn/longhorn-instance-manager](https://github.com/longhorn/longhorn-instance-manager) 
