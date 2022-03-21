@@ -1,0 +1,16 @@
+# Ansible
+## Playbook: Disable Swap
+```yaml
+...
+  tasks:
+  - name: Disable swap for current session
+    command: swapoff -a
+    become: true
+  - name: Disable swap permanently, persist reboots
+    replace:
+      path: /etc/fstab
+      regexp: '^(\s*)([^#\n]+\s+)(\w+\s+)swap(\s+.*)$'
+      replace: '#\1\2\3swap\4'
+      backup: yes
+```
+
