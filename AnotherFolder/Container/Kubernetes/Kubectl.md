@@ -2,19 +2,19 @@
 _The [Kubernetes](Kubernetes.md) command-line tool, [Kubectl](Kubectl.md) allows you to run commands against Kubernetes clusters. You can use kubectl to deploy applications, inspect and manage cluster resources, and view logs._
 
 ## Basic Commands
-Get configured contexts: `kubectl config get-contexts`
-Switch context: `kubectl config use-context <NAME>`
-Get pods: `kubectl get pods -n <NAMESPACE>`
-Kill pod: `kubectl delete pod -n <NAMESPACE> <POD_NAME> --force --grace-period=0`
-Get more details (for example of a pod): `kubectl get pod -n <NAMESPACE> <POD_NAME> -o wide`
-Describe pod: `kubectl describe pod -n <NAMESPACE> <POD_NAME>`
-Get persistent volumes: `kubectl get pvc`
-Get pods filtered on label: `kubectl get pods --all-namespaces  -l app=nginx`
-Open container shell: `kubectl exec -n <NAMESPACE> --stdin --tty <POD_NAME> -- /bin/sh`
-Sort by (for example pod names): `kubectl get pods --all-namespaces --sort-by=.metadata.name`
-Sort by (for example persistent volumes): `kubectl get pods --all-namespaces --sort-by=.spec.capacity.storage`
-Sort by (for example events): `kubectl get events --sort-by=.metadata.creationTimestamp`
-Get all supported resource types: `kubectl api-resources`
+Get configured contexts: `kubectl config get-contexts`  
+Switch context: `kubectl config use-context <NAME>`  
+Get pods: `kubectl get pods -n <NAMESPACE>`  
+Kill pod: `kubectl delete pod -n <NAMESPACE> <POD_NAME> --force --grace-period=0`  
+Get more details (for example of a pod): `kubectl get pod -n <NAMESPACE> <POD_NAME> -o wide`  
+Describe pod: `kubectl describe pod -n <NAMESPACE> <POD_NAME>`  
+Get persistent volumes: `kubectl get pvc`  
+Get pods filtered on label: `kubectl get pods --all-namespaces  -l app=nginx`  
+Open container shell: `kubectl exec -n <NAMESPACE> --stdin --tty <POD_NAME> -- /bin/sh` 
+Sort by (for example pod names): `kubectl get pods --all-namespaces --sort-by=.metadata.name`  
+Sort by (for example persistent volumes): `kubectl get pods --all-namespaces --sort-by=.spec.capacity.storage`  
+Sort by (for example events): `kubectl get events --sort-by=.metadata.creationTimestamp`  
+Get all supported resource types: `kubectl api-resources`  
 
 Create file and apply (secret example)
 _Because `kubectl create` can only be run once, you can output the secret as YAML and pipe this to `kubectl apply`._
