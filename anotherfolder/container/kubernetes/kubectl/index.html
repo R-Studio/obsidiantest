@@ -28,12 +28,12 @@
 
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("/obsidiantest/doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="/obsidiantest/resources/css/retype.css?v=2.0.701184927830" rel="stylesheet" data-turbo-track="reload" />
+    <link href="/obsidiantest/resources/css/retype.css?v=2.0.701185079153" rel="stylesheet" data-turbo-track="reload" />
 
-    <script type="text/javascript" src="/obsidiantest/resources/js/config.js?v=2.0.701184927830" defer data-turbo-track="reload"></script>
+    <script type="text/javascript" src="/obsidiantest/resources/js/config.js?v=2.0.701185079153" defer data-turbo-track="reload"></script>
     <script type="text/javascript" src="/obsidiantest/resources/js/retype.js?v=2.0" defer data-turbo-track="reload"></script>
-    <script id="lunr-js" type="text/javascript" src="/obsidiantest/resources/js/lunr.js?v=2.0.701184927830" defer></script>
-    <script id="prism-js" type="text/javascript" src="/obsidiantest/resources/js/prism.js?v=2.0.701184927830" defer></script>
+    <script id="lunr-js" type="text/javascript" src="/obsidiantest/resources/js/lunr.js?v=2.0.701185079153" defer></script>
+    <script id="prism-js" type="text/javascript" src="/obsidiantest/resources/js/prism.js?v=2.0.701185079153" defer></script>
 
     <style>
         .container {
@@ -186,10 +186,17 @@
 <p>Get configured contexts: <code v-pre>kubectl config get-contexts</code><br />
 Switch context: <code v-pre>kubectl config use-context &lt;NAME&gt;</code><br />
 Get pods: <code v-pre>kubectl get pods -n &lt;NAMESPACE&gt;</code><br />
-Kill pod: <code v-pre>kubectl delete pod -n &lt;NAMESPACE&gt; &lt;POD_NAME&gt; --force --grace-period=0 Get more details (for example of a pod): </code>kubectl get pod -n <NAMESPACE> &lt;POD_NAME&gt; -o wide<code v-pre>Describe pod:</code>kubectl describe pod -n <NAMESPACE> &lt;POD_NAME&gt;<code v-pre>Get persistent volumes:</code>kubectl get pvc<code v-pre>Get pods filtered on label:</code>kubectl get pods --all-namespaces  -l app=nginx<code v-pre>Open container shell:</code>kubectl exec -n <NAMESPACE> --stdin --tty &lt;POD_NAME&gt; -- /bin/sh<code v-pre>Sort by (for example pod names):</code>kubectl get pods --all-namespaces --sort-by=.metadata.name<code v-pre>Sort by (for example persistent volumes):</code>kubectl get pods --all-namespaces --sort-by=.spec.capacity.storage<code v-pre>Sort by (for example events):</code>kubectl get events --sort-by=.metadata.creationTimestamp<code v-pre>Get all supported resource types:</code>kubectl api-resources<code v-pre> </code><br />
-Create file and apply (secret example)<br />
-<em>Because <code v-pre>kubectl create</code> can only be run once, you can output the secret as YAML and pipe this to <code v-pre>kubectl apply</code>.</em><br />
-<code v-pre>kubectl create secret generic &lt;SECRET_NAME&gt; -n &lt;NAMESPACE&gt; --from-literal=&lt;USERNAME_VARIABLE&gt;=&lt;USERNAME&gt; --from-literal=&lt;PASSWORD_VARIABLE&gt;=&lt;PASSWORD&gt; --dry-run=client -o yaml | kubectl apply -f -</code></p>
+Kill pod: <code v-pre>kubectl delete pod -n &lt;NAMESPACE&gt; &lt;POD_NAME&gt; --force --grace-period=0</code><br />
+Get more details (for example of a pod): <code v-pre>kubectl get pod -n &lt;NAMESPACE&gt; &lt;POD_NAME&gt; -o wide</code><br />
+Describe pod: <code v-pre>kubectl describe pod -n &lt;NAMESPACE&gt; &lt;POD_NAME&gt;</code><br />
+Get persistent volumes: <code v-pre>kubectl get pvc</code><br />
+Get pods filtered on label: <code v-pre>kubectl get pods --all-namespaces  -l app=nginx</code><br />
+Open container shell: <code v-pre>kubectl exec -n &lt;NAMESPACE&gt; --stdin --tty &lt;POD_NAME&gt; -- /bin/sh</code><br />
+Sort by (for example pod names): <code v-pre>kubectl get pods --all-namespaces --sort-by=.metadata.name</code><br />
+Sort by (for example persistent volumes): <code v-pre>kubectl get pods --all-namespaces --sort-by=.spec.capacity.storage</code><br />
+Sort by (for example events): <code v-pre>kubectl get events --sort-by=.metadata.creationTimestamp</code><br />
+Get all supported resource types: <code v-pre>kubectl api-resources</code><br />
+<code v-pre>Create file and apply (secret example) _Because</code>kubectl create<code v-pre>can only be run once, you can output the secret as YAML and pipe this to</code>kubectl apply<code v-pre>._ </code>kubectl create secret generic &lt;SECRET_NAME&gt; -n <NAMESPACE> --from-literal=&lt;USERNAME_VARIABLE&gt;=<USERNAME> --from-literal=&lt;PASSWORD_VARIABLE&gt;=<PASSWORD> --dry-run=client -o yaml | kubectl apply -f -&#x60;</p>
 <p>-&gt; More in the <a href="https://kubernetes.io/docs/reference/kubectl/cheatsheet/">Cheatsheet</a></p>
 <doc-anchor-target id="namespaces">
     <h2>
