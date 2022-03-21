@@ -15,7 +15,7 @@ Sort by (for example pod names): `kubectl get pods --all-namespaces --sort-by=.m
 Sort by (for example persistent volumes): `kubectl get pods --all-namespaces --sort-by=.spec.capacity.storage`
 Sort by (for example events): `kubectl get events --sort-by=.metadata.creationTimestamp`
 Get all supported resource types: `kubectl api-resources`
-`
+
 Create file and apply (secret example)
 _Because `kubectl create` can only be run once, you can output the secret as YAML and pipe this to `kubectl apply`._
 `kubectl create secret generic <SECRET_NAME> -n <NAMESPACE> --from-literal=<USERNAME_VARIABLE>=<USERNAME> --from-literal=<PASSWORD_VARIABLE>=<PASSWORD> --dry-run=client -o yaml | kubectl apply -f -`
