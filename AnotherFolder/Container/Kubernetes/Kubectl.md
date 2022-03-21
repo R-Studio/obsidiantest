@@ -5,7 +5,7 @@ _The [Kubernetes](Kubernetes.md) command-line tool, [Kubectl](Kubectl.md) allows
 Get configured contexts: `kubectl config get-contexts`
 Switch context: `kubectl config use-context <NAME>`
 Get pods: `kubectl get pods -n <NAMESPACE>`
-Kill pod: `kubectl delete pod -n <NAMESPACE> <POD_NAME> --force --grace-period=0
+Kill pod: `kubectl delete pod -n <NAMESPACE> <POD_NAME> --force --grace-period=0`
 Get more details (for example of a pod): `kubectl get pod -n <NAMESPACE> <POD_NAME> -o wide`
 Describe pod: `kubectl describe pod -n <NAMESPACE> <POD_NAME>`
 Get persistent volumes: `kubectl get pvc`
