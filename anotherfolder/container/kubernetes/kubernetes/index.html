@@ -28,12 +28,12 @@
 
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("/obsidiantest/doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="/obsidiantest/resources/css/retype.css?v=2.0.701196454224" rel="stylesheet" data-turbo-track="reload" />
+    <link href="/obsidiantest/resources/css/retype.css?v=2.0.701196553174" rel="stylesheet" data-turbo-track="reload" />
 
-    <script type="text/javascript" src="/obsidiantest/resources/js/config.js?v=2.0.701196454224" defer data-turbo-track="reload"></script>
+    <script type="text/javascript" src="/obsidiantest/resources/js/config.js?v=2.0.701196553174" defer data-turbo-track="reload"></script>
     <script type="text/javascript" src="/obsidiantest/resources/js/retype.js?v=2.0" defer data-turbo-track="reload"></script>
-    <script id="lunr-js" type="text/javascript" src="/obsidiantest/resources/js/lunr.js?v=2.0.701196454224" defer></script>
-    <script id="prism-js" type="text/javascript" src="/obsidiantest/resources/js/prism.js?v=2.0.701196454224" defer></script>
+    <script id="lunr-js" type="text/javascript" src="/obsidiantest/resources/js/lunr.js?v=2.0.701196553174" defer></script>
+    <script id="prism-js" type="text/javascript" src="/obsidiantest/resources/js/prism.js?v=2.0.701196553174" defer></script>
 
     <style>
         .container {
@@ -177,9 +177,9 @@
     </h1>
 </doc-anchor-target>
 <p>Rancher Kubernetes is using Docker as container runtime/engine.</p>
-<p>Kubernetes internal communication):<br />
+<p>Kubernetes internal communication):
 <code v-pre>&lt;KUBERNETES_SERVICE_NAME&gt;:&lt;APPLICATION_PORT&gt;</code></p>
-<p>Kubernetes internal communication (pods in different namespaces):<br />
+<p>Kubernetes internal communication (pods in different namespaces):
 <code v-pre>&lt;KUBERNETES_SERVICE_NAME&gt;.&lt;KUBERNETES_NAMESPACE&gt;:&lt;APPLICATION_PORT&gt;</code></p>
 <doc-anchor-target id="resources">
     <h2>
@@ -221,7 +221,7 @@ stringData:
         <span>Resource Management</span>
     </h2>
 </doc-anchor-target>
-<p>By default, containers run with unbounded <a href="https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/">compute resources</a> on a Kubernetes cluster. With resource quotas, cluster administrators can restrict resource consumption and creation on a <a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces">namespace</a> basis. Within a namespace, a Pod or Container can consume as much CPU and memory as defined by the namespace&#x27;s resource quota or by its limits.<br />
+<p>By default, containers run with unbounded <a href="https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/">compute resources</a> on a Kubernetes cluster. With resource quotas, cluster administrators can restrict resource consumption and creation on a <a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces">namespace</a> basis. Within a namespace, a Pod or Container can consume as much CPU and memory as defined by the namespace&#x27;s resource quota or by its limits.
 -&gt; <a href="https://www.puzzle.ch/de/blog/articles/2021/11/04/basic-kubernetes-resource-management">Basic Resource Management</a></p>
 <doc-anchor-target id="requests--limits-containers">
     <h3>
@@ -300,9 +300,9 @@ spec:
         <span>Known-Errors</span>
     </h3>
 </doc-anchor-target>
-<p><strong>Error:</strong> <em>Create Pod ... failed error: pods &quot;...&quot; is forbidden: failed quota: &lt;YOUR_QUOTA&gt;: must specify limits.cpu,limits.memory</em><br />
+<p><strong>Error:</strong> <em>Create Pod ... failed error: pods &quot;...&quot; is forbidden: failed quota: &lt;YOUR_QUOTA&gt;: must specify limits.cpu,limits.memory</em>
 <strong>Solution:</strong> Add limits to your container deployment.</p>
-<p><strong>Error:</strong> <em>Create Pod ... failed error: pods &quot;...&quot; is forbidden: exceeded quota: &lt;YOUR_QUOTA&gt;, requested: limits.cpu=1600m, used: limits.cpu=1, limited: limits.cpu=2500m</em><br />
+<p><strong>Error:</strong> <em>Create Pod ... failed error: pods &quot;...&quot; is forbidden: exceeded quota: &lt;YOUR_QUOTA&gt;, requested: limits.cpu=1600m, used: limits.cpu=1, limited: limits.cpu=2500m</em>
 <strong>Solution:</strong> In this example my quota is exceeded (<code v-pre>limited - (requested + used) = -100m</code>). -&gt; Increase your quota by at least 100m.</p>
 <doc-anchor-target id="vertical-pod-autoscaler">
     <h3>
@@ -327,14 +327,14 @@ spec:
     </h3>
 </doc-anchor-target>
 <p><a href="https://github.com/longhorn/longhorn">_Longhorn</a> delivers simplified, easy to deploy and upgrade, 100% open source, cloud-native hyper-converged persistent block storage without the cost overhead of open core or proprietary alternatives._</p>
-<p>Project source code is spread across a number of repos:<br />
-| Component                      | What it does                                                           | GitHub repo   |<br />
-|:------------------------------ |:----------------------- |:----------------------------------------------------------------- |<br />
-| Backing Image Manager | Backing image download, sync, and deletion in a disk                   | <a href="https://github.com/longhorn/backing-image-manager">longhorn/backing-image-manager</a>         |<br />
-| Engine                | Core controller/replica logic                                          | <a href="https://github.com/longhorn/longhorn-engine">longhorn/longhorn-engine</a>                     |<br />
-| Instance Manager      | Controller/replica instance lifecycle management                       | <a href="https://github.com/longhorn/longhorn-instance-manager">longhorn/longhorn-instance-manager</a> |<br />
-| Manager               | Longhorn orchestration, includes CSI driver for Kubernetes             | <a href="https://github.com/longhorn/longhorn-manager">longhorn/longhorn-manager</a>                   |<br />
-| Share Manager         | NFS provisioner that exposes Longhorn volumes as ReadWriteMany volumes | <a href="https://github.com/longhorn/longhorn-share-manager">longhorn/longhorn-share-manager</a>       |<br />
+<p>Project source code is spread across a number of repos:
+| Component                      | What it does                                                           | GitHub repo   |
+|:------------------------------ |:----------------------- |:----------------------------------------------------------------- |
+| Backing Image Manager | Backing image download, sync, and deletion in a disk                   | <a href="https://github.com/longhorn/backing-image-manager">longhorn/backing-image-manager</a>         |
+| Engine                | Core controller/replica logic                                          | <a href="https://github.com/longhorn/longhorn-engine">longhorn/longhorn-engine</a>                     |
+| Instance Manager      | Controller/replica instance lifecycle management                       | <a href="https://github.com/longhorn/longhorn-instance-manager">longhorn/longhorn-instance-manager</a> |
+| Manager               | Longhorn orchestration, includes CSI driver for Kubernetes             | <a href="https://github.com/longhorn/longhorn-manager">longhorn/longhorn-manager</a>                   |
+| Share Manager         | NFS provisioner that exposes Longhorn volumes as ReadWriteMany volumes | <a href="https://github.com/longhorn/longhorn-share-manager">longhorn/longhorn-share-manager</a>       |
 | UI                    | The Longhorn dashboard                                                 | <a href="https://github.com/longhorn/longhorn-ui">longhorn/longhorn-ui</a>  |</p>
 <doc-anchor-target id="creating-longhorn-persistent-volumes-using-rancher">
     <h4>
@@ -359,7 +359,7 @@ spec:
         <span>Performance</span>
     </h4>
 </doc-anchor-target>
-<p>Currently there is a big discussion about Longhorns performance, more details in the <a href="https://github.com/longhorn/longhorn/issues/1541">GitHub Issue</a>.<br />
+<p>Currently there is a big discussion about Longhorns performance, more details in the <a href="https://github.com/longhorn/longhorn/issues/1541">GitHub Issue</a>.
 <em>-&gt; Maybe this will be better in the future</em></p>
 <doc-anchor-target id="monitoring">
     <h4>
@@ -372,7 +372,7 @@ spec:
 <li>A running Prometheus instance</li>
 <li>A Kubernetes ServiceMonitor for Longhorn</li>
 </ul>
-<p><strong>Example: ServiceMonitor for Longhorn</strong><br />
+<p><strong>Example: ServiceMonitor for Longhorn</strong>
 Longhorn ServiceMonitor has a label selector <code v-pre>app: longhorn-manager</code> to select Longhorn backend service. Later on, the Prometheus CRD can include Longhorn ServiceMonitor so that the Prometheus server can discover all Longhorn manager pods and their endpoints. Deploy the ServiceMonitor in the same namespace as Prometheus.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-yaml"><code v-pre class="language-yaml">apiVersion: monitoring.coreos.com/v1
@@ -391,7 +391,7 @@ spec:
   endpoints:
     - port: manager</code></pre>
 </doc-codeblock></div>
-<p><strong>IMPORTANT:</strong> Unfortunately in my case the Prometheus Operator has not automatically found the new created ServiceMonitor.<br />
+<p><strong>IMPORTANT:</strong> Unfortunately in my case the Prometheus Operator has not automatically found the new created ServiceMonitor.
 So I had to disable serviceMonitorSelectorNilUsesHelmValues and podMonitorSelectorNilUsesHelmValues like this (more information&#x27;s in the <a href="https://github.com/helm/charts/issues/13196">GitHub issue</a>):</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-yaml"><code v-pre class="language-yaml">prometheus:
@@ -414,7 +414,7 @@ So I had to disable serviceMonitorSelectorNilUsesHelmValues and podMonitorSelect
     </h3>
 </doc-anchor-target>
 <p><a href="https://itnext.io/state-of-persistent-storage-in-k8s-a-benchmark-77a96bb1ac29">https://itnext.io/state-of-persistent-storage-in-k8s-a-benchmark-77a96bb1ac29</a></p>
-<p><a href="https://github.com/piraeusdatastore/piraeus">Piraeus-Project</a><br />
+<p><a href="https://github.com/piraeusdatastore/piraeus">Piraeus-Project</a>
 <a href="https://github.com/piraeusdatastore/piraeus-operator">Piraeus-Operator</a></p>
 <doc-anchor-target id="taints--tolerations">
     <h2>
@@ -422,7 +422,7 @@ So I had to disable serviceMonitorSelectorNilUsesHelmValues and podMonitorSelect
         <span>Taints &amp; Tolerations</span>
     </h2>
 </doc-anchor-target>
-<p><em><a href="https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/">Taints</a> and <a href="https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/">tolerations</a> are a mechanism that allows you to ensure that pods are not placed on inappropriate nodes. <strong><a href="https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/">Taints</a> are added to nodes, while <a href="https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/">tolerations</a> are defined in the pod specification.</strong> When you taint a node, it will repel all the pods except those that have a toleration for that taint. A node can have one or many taints associated with it.<br />
+<p><em><a href="https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/">Taints</a> and <a href="https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/">tolerations</a> are a mechanism that allows you to ensure that pods are not placed on inappropriate nodes. <strong><a href="https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/">Taints</a> are added to nodes, while <a href="https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/">tolerations</a> are defined in the pod specification.</strong> When you taint a node, it will repel all the pods except those that have a toleration for that taint. A node can have one or many taints associated with it.
 For example, most Kubernetes distributions will automatically taint the master nodes so that one of the pods that manages the control plane is scheduled onto them and not any other data plane pods deployed by users. This ensures that the master nodes are dedicated to run control plane pods.</em> -&gt; <strong><a href="https://www.densify.com/kubernetes-autoscaling/kubernetes-taints">Useful Guide</a></strong></p>
 <doc-anchor-target id="taint-effects">
     <h3>
@@ -466,8 +466,8 @@ For example, most Kubernetes distributions will automatically taint the master n
 <li>the <code v-pre>operator</code> is <code v-pre>Equal</code> and the <code v-pre>value</code>s are equal.</li>
 </ul>
 <blockquote>
-<p><strong>NOTE:</strong> There are two special cases:<br />
-An empty <code v-pre>key</code> with operator <code v-pre>Exists</code> matches all keys, values and effects which means this will tolerate everything.<br />
+<p><strong>NOTE:</strong> There are two special cases:
+An empty <code v-pre>key</code> with operator <code v-pre>Exists</code> matches all keys, values and effects which means this will tolerate everything.
 An empty <code v-pre>effect</code> matches all effects with key <code v-pre>key1</code>.</p>
 </blockquote>
 <doc-anchor-target id="commands">

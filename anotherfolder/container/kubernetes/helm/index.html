@@ -28,12 +28,12 @@
 
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("/obsidiantest/doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="/obsidiantest/resources/css/retype.css?v=2.0.701196454224" rel="stylesheet" data-turbo-track="reload" />
+    <link href="/obsidiantest/resources/css/retype.css?v=2.0.701196553174" rel="stylesheet" data-turbo-track="reload" />
 
-    <script type="text/javascript" src="/obsidiantest/resources/js/config.js?v=2.0.701196454224" defer data-turbo-track="reload"></script>
+    <script type="text/javascript" src="/obsidiantest/resources/js/config.js?v=2.0.701196553174" defer data-turbo-track="reload"></script>
     <script type="text/javascript" src="/obsidiantest/resources/js/retype.js?v=2.0" defer data-turbo-track="reload"></script>
-    <script id="lunr-js" type="text/javascript" src="/obsidiantest/resources/js/lunr.js?v=2.0.701196454224" defer></script>
-    <script id="prism-js" type="text/javascript" src="/obsidiantest/resources/js/prism.js?v=2.0.701196454224" defer></script>
+    <script id="lunr-js" type="text/javascript" src="/obsidiantest/resources/js/lunr.js?v=2.0.701196553174" defer></script>
+    <script id="prism-js" type="text/javascript" src="/obsidiantest/resources/js/prism.js?v=2.0.701196553174" defer></script>
 
     <style>
         .container {
@@ -177,15 +177,15 @@
     </h1>
 </doc-anchor-target>
 <p><em>Helm helps you manage <a href="../kubernetes/">Kubernetes</a> applications — Helm Charts help you define, install, and upgrade even the most complex <a href="../kubernetes/">Kubernetes</a> application.</em></p>
-<p>Get Helm Default Values (example for project &quot;prometheus-community/kube-prometheus-stack&quot;):<br />
+<p>Get Helm Default Values (example for project &quot;prometheus-community/kube-prometheus-stack&quot;):
 <code v-pre>helm show values prometheus-community/kube-prometheus-stack</code></p>
-<p>Testing Helm Chart (only local)<br />
+<p>Testing Helm Chart (only local)
 <code v-pre>helm template &lt;RELEASE_NAME&gt; .\&lt;HELM-CHART_ROOT_LOCATION&gt;</code></p>
-<p>Upgrade &amp; Installing Helm Chart<br />
+<p>Upgrade &amp; Installing Helm Chart
 <code v-pre>helm upgrade --install &lt;RELEASE_NAME&gt; -n &lt;NAMESPACE&gt; . \&lt;HELM-CHART_ROOT_LOCATION&gt;</code></p>
-<p>List Helm release<br />
+<p>List Helm release
 <code v-pre>helm list --namespace test-ns1 </code></p>
-<p>Uninstall Helm release<br />
+<p>Uninstall Helm release
 <code v-pre>helm uninstall &lt;RELEASE_NAME&gt; -n &lt;NAMESPACE&gt;</code></p>
 <doc-anchor-target id="accessing-a-json-file-inside-templates">
     <h2>
@@ -209,7 +209,7 @@
         <span>Range (foreach)</span>
     </h2>
 </doc-anchor-target>
-<p>The <em>range</em> function is like a foreach function inside your Helm templates.<br />
+<p>The <em>range</em> function is like a foreach function inside your Helm templates.
 In the following example we create a DaemonSet foreach Pre-Pull image defined in the Helm values <em>values.yaml</em>.</p>
 <p><strong>Helm Template (daemonset.yaml)</strong></p>
 <div class="codeblock-wrapper"><doc-codeblock>
@@ -254,7 +254,7 @@ spec:
         <span>Use a Helm Value outside the &quot;range&quot;</span>
     </h4>
 </doc-anchor-target>
-<p>To use a Helm value outside the range for example from the root values you have to use &quot;$&quot; before the values path like this:<br />
+<p>To use a Helm value outside the range for example from the root values you have to use &quot;$&quot; before the values path like this:
 <code v-pre>{{ $.Values.&lt;YOUR_VALUENAME_AT_ROOT_PATH&gt; }}</code></p>
 <doc-anchor-target id="troubleshooting">
     <h2>
@@ -272,9 +272,9 @@ spec:
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-none"><code v-pre class="language-none">UPGRADE FAILED: rendered manifests contain a resource that already exists. Unable to continue with update: ConfigMap &quot;&lt;CONFIGMAP_NAME&gt;&quot; in namespace &quot;&lt;NAMESPACE&gt;&quot; exists and cannot be imported into the current release: invalid ownership metadata; label validation error: missing key &quot;app.kubernetes.io/managed-by&quot;: must be set to &quot;Helm&quot;; annotation validation error: missing key &quot;meta.helm.sh/release-name&quot;: must be set to &quot;...&quot;; annotation validation error: missing key &quot;meta.helm.sh/release-namespace&quot;: must be set to &quot;...&quot;</code></pre>
 </doc-codeblock></div>
-<p><strong>Cause</strong><br />
+<p><strong>Cause</strong>
 <em>This error occurs because you already have manually deployed a resource with the same name (in this example a &quot;ConfigMap&quot;) and you are trying to redeploy this with Helm again. Helm cannot override the ConfigMap because it was not deployed with Helm.</em></p>
-<p><strong>Solution</strong><br />
+<p><strong>Solution</strong>
 Remove the resource, in this example the ConfigMap, and redeploy with Helm.</p>
 
                                 

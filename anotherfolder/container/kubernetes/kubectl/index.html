@@ -28,12 +28,12 @@
 
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("/obsidiantest/doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="/obsidiantest/resources/css/retype.css?v=2.0.701196454224" rel="stylesheet" data-turbo-track="reload" />
+    <link href="/obsidiantest/resources/css/retype.css?v=2.0.701196553174" rel="stylesheet" data-turbo-track="reload" />
 
-    <script type="text/javascript" src="/obsidiantest/resources/js/config.js?v=2.0.701196454224" defer data-turbo-track="reload"></script>
+    <script type="text/javascript" src="/obsidiantest/resources/js/config.js?v=2.0.701196553174" defer data-turbo-track="reload"></script>
     <script type="text/javascript" src="/obsidiantest/resources/js/retype.js?v=2.0" defer data-turbo-track="reload"></script>
-    <script id="lunr-js" type="text/javascript" src="/obsidiantest/resources/js/lunr.js?v=2.0.701196454224" defer></script>
-    <script id="prism-js" type="text/javascript" src="/obsidiantest/resources/js/prism.js?v=2.0.701196454224" defer></script>
+    <script id="lunr-js" type="text/javascript" src="/obsidiantest/resources/js/lunr.js?v=2.0.701196553174" defer></script>
+    <script id="prism-js" type="text/javascript" src="/obsidiantest/resources/js/prism.js?v=2.0.701196553174" defer></script>
 
     <style>
         .container {
@@ -191,13 +191,13 @@ Get more details (for example of a pod): <code v-pre>kubectl get pod -n &lt;NAME
 Describe pod: <code v-pre>kubectl describe pod -n &lt;NAMESPACE&gt; &lt;POD_NAME&gt;</code><br />
 Get persistent volumes: <code v-pre>kubectl get pvc</code><br />
 Get pods filtered on label: <code v-pre>kubectl get pods --all-namespaces  -l app=nginx</code><br />
-Open container shell: <code v-pre>kubectl exec -n &lt;NAMESPACE&gt; --stdin --tty &lt;POD_NAME&gt; -- /bin/sh</code><br />
+Open container shell: <code v-pre>kubectl exec -n &lt;NAMESPACE&gt; --stdin --tty &lt;POD_NAME&gt; -- /bin/sh</code>
 Sort by (for example pod names): <code v-pre>kubectl get pods --all-namespaces --sort-by=.metadata.name</code><br />
 Sort by (for example persistent volumes): <code v-pre>kubectl get pods --all-namespaces --sort-by=.spec.capacity.storage</code><br />
 Sort by (for example events): <code v-pre>kubectl get events --sort-by=.metadata.creationTimestamp</code><br />
 Get all supported resource types: <code v-pre>kubectl api-resources</code></p>
-<p>Create file and apply (secret example)<br />
-<em>Because <code v-pre>kubectl create</code> can only be run once, you can output the secret as YAML and pipe this to <code v-pre>kubectl apply</code>.</em><br />
+<p>Create file and apply (secret example)
+<em>Because <code v-pre>kubectl create</code> can only be run once, you can output the secret as YAML and pipe this to <code v-pre>kubectl apply</code>.</em>
 <code v-pre>kubectl create secret generic &lt;SECRET_NAME&gt; -n &lt;NAMESPACE&gt; --from-literal=&lt;USERNAME_VARIABLE&gt;=&lt;USERNAME&gt; --from-literal=&lt;PASSWORD_VARIABLE&gt;=&lt;PASSWORD&gt; --dry-run=client -o yaml | kubectl apply -f -</code></p>
 <p>-&gt; More in the <a href="https://kubernetes.io/docs/reference/kubectl/cheatsheet/">Cheatsheet</a></p>
 <doc-anchor-target id="namespaces">
@@ -206,7 +206,7 @@ Get all supported resource types: <code v-pre>kubectl api-resources</code></p>
         <span>Namespaces</span>
     </h2>
 </doc-anchor-target>
-<p>Get all namespaces: <code v-pre>kubectl get namespace</code><br />
+<p>Get all namespaces: <code v-pre>kubectl get namespace</code>
 Create namespace: <code v-pre>kubectl create namespace &lt;NAMESPACE_NAME&gt;</code></p>
 <p>Create namespace (example YAML):</p>
 <div class="codeblock-wrapper"><doc-codeblock>
@@ -314,9 +314,9 @@ spec:
         <span>Kubectl: Get Containers Resource Configuration (find Containers without configured Resources)</span>
     </h3>
 </doc-anchor-target>
-<p><strong>JSONPATH</strong><br />
+<p><strong>JSONPATH</strong>
 <code v-pre>kubectl get pods -n &lt;NAMESPACE&gt; -o jsonpath=&quot;{range .items[*]}{.metadata.name}{'\t'}{.spec.containers[*].resources}{'\n'}{end}&quot;</code></p>
-<p><strong>Custom Columns</strong><br />
+<p><strong>Custom Columns</strong>
 <code v-pre>kubectl get pods -n grafana --output=custom-columns=&quot;POD:.metadata.name,CONTAINERS:.spec.containers[*].name,REQUESTS:.spec.containers[*].resources.requests,LIMITS:.spec.containers[*].resources.limits&quot;</code></p>
 
                                 
