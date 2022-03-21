@@ -28,12 +28,12 @@
 
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("/obsidiantest/doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="/obsidiantest/resources/css/retype.css?v=2.0.701185079153" rel="stylesheet" data-turbo-track="reload" />
+    <link href="/obsidiantest/resources/css/retype.css?v=2.0.701185203567" rel="stylesheet" data-turbo-track="reload" />
 
-    <script type="text/javascript" src="/obsidiantest/resources/js/config.js?v=2.0.701185079153" defer data-turbo-track="reload"></script>
+    <script type="text/javascript" src="/obsidiantest/resources/js/config.js?v=2.0.701185203567" defer data-turbo-track="reload"></script>
     <script type="text/javascript" src="/obsidiantest/resources/js/retype.js?v=2.0" defer data-turbo-track="reload"></script>
-    <script id="lunr-js" type="text/javascript" src="/obsidiantest/resources/js/lunr.js?v=2.0.701185079153" defer></script>
-    <script id="prism-js" type="text/javascript" src="/obsidiantest/resources/js/prism.js?v=2.0.701185079153" defer></script>
+    <script id="lunr-js" type="text/javascript" src="/obsidiantest/resources/js/lunr.js?v=2.0.701185203567" defer></script>
+    <script id="prism-js" type="text/javascript" src="/obsidiantest/resources/js/prism.js?v=2.0.701185203567" defer></script>
 
     <style>
         .container {
@@ -195,8 +195,10 @@ Open container shell: <code v-pre>kubectl exec -n &lt;NAMESPACE&gt; --stdin --tt
 Sort by (for example pod names): <code v-pre>kubectl get pods --all-namespaces --sort-by=.metadata.name</code><br />
 Sort by (for example persistent volumes): <code v-pre>kubectl get pods --all-namespaces --sort-by=.spec.capacity.storage</code><br />
 Sort by (for example events): <code v-pre>kubectl get events --sort-by=.metadata.creationTimestamp</code><br />
-Get all supported resource types: <code v-pre>kubectl api-resources</code><br />
-<code v-pre>Create file and apply (secret example) _Because</code>kubectl create<code v-pre>can only be run once, you can output the secret as YAML and pipe this to</code>kubectl apply<code v-pre>._ </code>kubectl create secret generic &lt;SECRET_NAME&gt; -n <NAMESPACE> --from-literal=&lt;USERNAME_VARIABLE&gt;=<USERNAME> --from-literal=&lt;PASSWORD_VARIABLE&gt;=<PASSWORD> --dry-run=client -o yaml | kubectl apply -f -&#x60;</p>
+Get all supported resource types: <code v-pre>kubectl api-resources</code></p>
+<p>Create file and apply (secret example)<br />
+<em>Because <code v-pre>kubectl create</code> can only be run once, you can output the secret as YAML and pipe this to <code v-pre>kubectl apply</code>.</em><br />
+<code v-pre>kubectl create secret generic &lt;SECRET_NAME&gt; -n &lt;NAMESPACE&gt; --from-literal=&lt;USERNAME_VARIABLE&gt;=&lt;USERNAME&gt; --from-literal=&lt;PASSWORD_VARIABLE&gt;=&lt;PASSWORD&gt; --dry-run=client -o yaml | kubectl apply -f -</code></p>
 <p>-&gt; More in the <a href="https://kubernetes.io/docs/reference/kubectl/cheatsheet/">Cheatsheet</a></p>
 <doc-anchor-target id="namespaces">
     <h2>
