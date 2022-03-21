@@ -110,7 +110,7 @@ spec:
 [_Longhorn](https://github.com/longhorn/longhorn) delivers simplified, easy to deploy and upgrade, 100% open source, cloud-native hyper-converged persistent block storage without the cost overhead of open core or proprietary alternatives._
 
 Project source code is spread across a number of repos:
-| Component                      | What it does                                                           | GitHub repo                                                                                 |
+| Component                      | What it does                                                           | GitHub repo   |
 |:------------------------------ |:----------------------- |:----------------------------------------------------------------- |
 | Backing Image Manager | Backing image download, sync, and deletion in a disk                   | [longhorn/backing-image-manager](https://github.com/longhorn/backing-image-manager)         |
 | Engine                | Core controller/replica logic                                          | [longhorn/longhorn-engine](https://github.com/longhorn/longhorn-engine)                     |
