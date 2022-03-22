@@ -30,12 +30,12 @@
 
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("/obsidiantest/doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="/obsidiantest/resources/css/retype.css?v=2.0.701249268799" rel="stylesheet" data-turbo-track="reload" />
+    <link href="/obsidiantest/resources/css/retype.css?v=2.0.701258622871" rel="stylesheet" data-turbo-track="reload" />
 
-    <script type="text/javascript" src="/obsidiantest/resources/js/config.js?v=2.0.701249268799" defer data-turbo-track="reload"></script>
+    <script type="text/javascript" src="/obsidiantest/resources/js/config.js?v=2.0.701258622871" defer data-turbo-track="reload"></script>
     <script type="text/javascript" src="/obsidiantest/resources/js/retype.js?v=2.0" defer data-turbo-track="reload"></script>
-    <script id="lunr-js" type="text/javascript" src="/obsidiantest/resources/js/lunr.js?v=2.0.701249268799" defer></script>
-    <script id="prism-js" type="text/javascript" src="/obsidiantest/resources/js/prism.js?v=2.0.701249268799" defer></script>
+    <script id="lunr-js" type="text/javascript" src="/obsidiantest/resources/js/lunr.js?v=2.0.701258622871" defer></script>
+    <script id="prism-js" type="text/javascript" src="/obsidiantest/resources/js/prism.js?v=2.0.701258622871" defer></script>
 
     <style>
         .container {
@@ -281,6 +281,15 @@ ok</p>
 </tbody>
 </table>
 </div>
+<p>Project source code is spread across a number of repos:<br />
+| Component                      | What it does                                                           | GitHub repo                                                                                 |
+| ------------------------------ | ---------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| Longhorn Backing Image Manager | Backing image download, sync, and deletion in a disk                   | <a href="https://github.com/longhorn/backing-image-manager">longhorn/backing-image-manager</a>         |
+| Longhorn Engine                | Core controller/replica logic                                          | <a href="https://github.com/longhorn/longhorn-engine">longhorn/longhorn-engine</a>                     |
+| Longhorn Instance Manager      | Controller/replica instance lifecycle management                       | <a href="https://github.com/longhorn/longhorn-instance-manager">longhorn/longhorn-instance-manager</a> |
+| Longhorn Manager               | Longhorn orchestration, includes CSI driver for Kubernetes             | <a href="https://github.com/longhorn/longhorn-manager">longhorn/longhorn-manager</a>                   |
+| Longhorn Share Manager         | NFS provisioner that exposes Longhorn volumes as ReadWriteMany volumes | <a href="https://github.com/longhorn/longhorn-share-manager">longhorn/longhorn-share-manager</a>       |
+| Longhorn UI                    | The Longhorn dashboard                                                 | <a href="https://github.com/longhorn/longhorn-ui">longhorn/longhorn-ui</a>                             |</p>
 <doc-anchor-target id="test">
     <h1>
         <doc-anchor-trigger class="header-anchor-trigger" to="#test">#</doc-anchor-trigger>
